@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Motel Champlain</title>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align:center;
+	background:url(__PUBLIC__/images/index-bg.jpg)
+}
+</style>
+<import type='css' file="css.global,css.style" />
+<import file="js.function,js.tools,js.jquery" />
+<base target="_self">
+</head>
+<body>
+<div class="page">
+  <div class="user">
+  <if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+  <a href="<{:U('Index/Login/doLogout')}>"  target="_Self">退出</a>
+  <else />
+  <a href="<{:U('Index/Login/index')}>">登录</a>&nbsp;<a href="<{:U('Index/Login/checkreg')}>">注册</a>
+  </if>
+  </div>
+  <div class="logo"><img src="__PUBLIC__/images/logo.png" width="285" height="64"></div>
+  <div class="search">
+    <input name="code" type="text" id="_code">
+    <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img.jpg"></a>
+  </div>
+    <div class="blank170"></div>
+  <div class="fl">
+      <Volist name="modelid0" id="modelids">
+      <div  class="<if condition="$key+1 eq count($modelid0)">ts2<else />ts</if>"><img src="__PUBLIC__/images/q1.jpg" width="57" height="63">
+        <p><{$modelids.name}></p>
+        <span><Volist name="modelids.Article" id="Articles" ><if condition="$Articles.ispush eq 1"><a href="<{:U('Index/Article/index/',array('articleid'=>$Articles['article_id']))}>" target="_blank"><{$Articles.title}></a></if></Volist></span></div>
+	  </Volist>
+
+  <div style="clear:both;display:block; "></div></div>
+  
+  <div class="links"><span>友情连接：</span><volist name="links" id="link"><a href="<{$link.url}>"><{$link.name}></a></volist></div>
+  <!-- footer start -->
+  <include file="Public:footer" />
+  <!-- footer end -->
+</div>
+</body>
+</html>

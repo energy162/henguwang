@@ -1,0 +1,43 @@
+<include file="Public:pagerForm" />
+<script>
+	function updateSort(obj){
+		$id=$(obj).attr('name');
+		$value=$(obj).attr('value');
+		$.post('__URL__/update/navTabId/listcate/callbackType/closeCurrent' , {'id':$id,'sort':$value} , function(){
+			$(obj).html($value);
+		});
+		navTabPageBreak();
+	}
+
+</script>
+
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="delete" href="__URL__/delete/id/{item_id}/navTabId/listcate" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+			<li class="line">line</li>
+			<li><a class="icon"  href="javascript:navTabPageBreak()"><span>刷新</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="112">
+		<thead>
+			<tr align="center">
+				<th width="40">ID</th>
+				<th>注册用户名</th>
+				<th>留言内容</th>
+				<th>添加时间</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="list" item="vo">
+
+				<tr target="item_id" rel="<{$vo.id}>" level="<{$vo.level}>" align="center">
+					<td ><{$vo.id}></td>
+					<td align="left"><{$vo.username}></td>
+					<td><{$vo.content}></td>
+					<td width="70" align="center"><{$vo.addtime|date="Y-m-d H:m:s",###}></td>
+				</tr>
+			</foreach>
+		</tbody>
+	</table>
+</div>

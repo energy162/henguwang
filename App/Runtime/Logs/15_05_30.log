@@ -1,0 +1,74 @@
+[ 2015-05-30T11:55:55+08:00 ] 183.62.210.102 /index.php?s=/admin/rbacuser/index.html&_=1432958108667
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000433s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000516s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `easy_user` [ RunTime:0.000642s ]
+SQL: SELECT `id`,`username`,`logintime`,`loginip`,`lock` FROM `easy_user`  [ RunTime:0.000156s ]
+SQL: SHOW COLUMNS FROM `easy_role` [ RunTime:0.000397s ]
+NOTIC: [8] Undefined index: mapping_order /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 188 行.
+NOTIC: [8] Undefined index: mapping_limit /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 189 行.
+NOTIC: [8] Undefined index: relation_foreign_key /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 190 行.
+SQL: SELECT b.id,name,remark FROM easy_role_user AS a, easy_role AS b WHERE a.role_id = b.id AND a. user_id='6' [ RunTime:0.000244s ]
+NOTIC: [8] Undefined index: mapping_order /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 188 行.
+NOTIC: [8] Undefined index: mapping_limit /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 189 行.
+NOTIC: [8] Undefined index: relation_foreign_key /alidata/www/default/ThinkPHP/Extend/Model/RelationModel.class.php 第 190 行.
+SQL: SELECT b.id,name,remark FROM easy_role_user AS a, easy_role AS b WHERE a.role_id = b.id AND a. user_id='13' [ RunTime:0.000205s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: currentPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 2 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 3 行.
+NOTIC: [8] Undefined index: _order /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 4 行.
+NOTIC: [8] Undefined index: _sort /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 5 行.
+NOTIC: [8] Use of undefined constant admin - assumed 'admin' /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 56 行.
+NOTIC: [8] Use of undefined constant admin - assumed 'admin' /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 56 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 67 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 68 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 69 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 70 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 71 行.
+NOTIC: [8] Undefined variable: totalCount /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 73 行.
+NOTIC: [8] Undefined variable: totalCount /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 75 行.
+NOTIC: [8] Undefined variable: numPerPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 75 行.
+NOTIC: [8] Undefined variable: currentPage /alidata/www/default/App/Runtime/Cache/Admin/ee5a8548bb9cece49bf2ac858809f248.php 第 75 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008392s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008452s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000204s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000212s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000120s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000228s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000863s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000336s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000397s ]
+
+[ 2015-05-30T11:55:59+08:00 ] 183.62.210.102 /index.php?s=/admin/user/index.html&_=1432958112246
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000427s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000369s ]
+SQL: SHOW COLUMNS FROM `easy_member_user` [ RunTime:0.000686s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `easy_member_user` LIMIT 1   [ RunTime:0.000128s ]
+SQL: SELECT * FROM `easy_member_user` ORDER BY user_id desc LIMIT 0,10   [ RunTime:0.000188s ]
+NOTIC: [8] Undefined variable: search /alidata/www/default/App/Modules/Admin/Action/UserAction.class.php 第 285 行.
+NOTIC: [8] Undefined index: values /alidata/www/default/App/Modules/Admin/Action/UserAction.class.php 第 286 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: _order /alidata/www/default/App/Runtime/Cache/Admin/61b890c438aa088ba1a87af356edd393.php 第 4 行.
+NOTIC: [8] Undefined index: _sort /alidata/www/default/App/Runtime/Cache/Admin/61b890c438aa088ba1a87af356edd393.php 第 5 行.
+NOTIC: [8] Undefined index: keyword /alidata/www/default/App/Runtime/Cache/Admin/61b890c438aa088ba1a87af356edd393.php 第 14 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.007410s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007451s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000206s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000189s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000261s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000871s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000322s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000357s ]
+

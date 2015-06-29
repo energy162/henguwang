@@ -1,0 +1,89 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Motel Champlain</title>
+<import type='css' file="css.global,css.style" />
+<import file="js.function,js.tools,js.jquery" />
+</head>
+<body>
+<div class="top">
+  <div class="page">
+    <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
+    <div class="user2">
+      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
+    </div>
+    <div class="search-ny">
+      <input name="code" type="text" id="_code">
+      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+  </div>
+</div>
+<div class="page">
+	<div class="banner-top"><img src="__PUBLIC__/images/banner-2.jpg" width="1000" height="90"></div>
+    <div class="mbx"><a href="__GROUP__/Index/index/index/">首页</a> > <a href="__GROUP__/Index/List/index/catsid/<{$article.tid}>"><{$article.name}></a> > 正文</div>
+    <div class="blank15"></div>
+  <div class="ph-center">
+  <div class="blank30"></div>
+  <div class="zwbt"><{$article.title}><p>来源：<{$article.source}> 发布时间：<{$article.pubtime}> 作者：<{$article.author}></p></div>
+  <div class="blank30"></div>
+  <div class="zw">
+  <{$article.content}>
+  </div>
+  </div>
+  
+<div class="ny-right">
+<if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+<div class="yh"><if condition="$persons.photo eq null">
+            <img src="__PUBLIC__/images/pic4.jpg" width="63" height="63">
+          <else/>
+            <img src="__AVATAR__/avatar_<{$persons.photo}>" width="63" height="63"></if>
+  <p>用户名：<{$persons.username}> <br>
+    用户类型：<{$ranklist[$persons['user_rank']]}> <br>
+	到期时间：<if condition="$persons['expires_time'] neq $persons['regtime']">
+    <{$persons.expires_time|date='Y.m.d',###}><else/>永不过期</if></p>
+  <div class="yhzx1 white"><a href="<{:U('Member/Person/index/')}>">个人中心</a></div>
+  <div class="yhzx white"><a href="<{:U('Index/Index/support/')}>">我要赞助</a></div>
+  <div style="clear:both;display:block; "></div>
+</div>
+</if>
+<div class="kx">
+  <p>K线选股</p>
+  <div class="xuangu">
+  <ul>
+    <Volist name="kxxg_list" id="articles" >
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+	</Volist>
+  </ul>
+  </div>
+</div>
+<div class="kx">
+  <p>财报选股</p>
+  <Volist name="cbxg_list" id="articles" >
+  <div <if condition="$key+1 eq count($cbxg_list)">class="jzx"<else />class="czx"</if>><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></div>
+  </Volist>
+</div>
+<div class="kx">
+<p>研报推荐</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="ybtj_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+<div class="kx">
+<p>专题</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="zt_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+</div>
+<div style="clear:both;display:block; "></div>
+</div>
+<!-- footer start -->
+<include file="Public:_footer" />
+<!-- footer end -->
+</body>
+</html>

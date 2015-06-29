@@ -1,0 +1,107 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Motel Champlain</title>
+<import type='css' file="css.global,css.style" />
+<import file="js.function,js.tools,js.jquery" />
+<link href="../Public/Css/style.css" rel="stylesheet" media="screen">
+<script src="../Public/Js/jquery.js"></script>
+<script src="../Public/Js/bootstrap.min.js"></script>
+<link href="../Public/Css/bootstrap.min.css" rel="stylesheet" media="screen">
+<!--[if lt IE 9]>
+<script src="http://cdn.dmeng.net/wp-content/themes/dmeng/js/html5shiv.js"></script>
+<script src="http://cdn.dmeng.net/wp-content/themes/dmeng/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body id="body">
+<div class="top">
+  <div class="page">
+    <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
+    <div class="user2">
+      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
+    </div>
+    <div class="search-ny">
+      <input name="code" type="text" id="_code">
+      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-lg-8 col-md-8 content">
+  <script>
+  $(function(){
+  $('#person').click(function(){
+    $.post("__APP__/Member/Person/person",{},function(data){
+      $('#content').html(data);
+      //alert(data);
+    });
+    
+  });
+  $('#data2').click(function(){
+    $.post("__APP__/Member/Person/data",{},function(data){
+      $('#content').html(data);
+      //alert(data);
+    });
+    
+  });
+
+    $('#person3').click(function(){
+    $.post("__APP__/Member/Person/person",{},function(data){
+      $('#content').html(data);
+      //alert(data);
+    });
+    
+  });
+})
+</script>
+<div >
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-2 uc_left sidebar-offcanvas" id="sidebar" role="navigation">
+          <ul class="nav nav-pills  nav-stacked uc_left ">
+             <li class="left_head"><h4>会员中心</h4></li>
+              <li><a href="<{:U(Person/index)}>">我的首页</a></li>
+              <li if(action_name="='base'" ||action_name="='head'" 'class="check" ';}=""><a href="javascript:void(0)" id="person">资料修改</a></li>
+			  <li><a href="<{:U('Person/resetpwd')}>">密码修改</a></li>
+          </ul>
+        </div>
+    <div class="col-md-10" id="content">
+      <p class="pull-left visible-xs">
+        <a class="label label-default" data-toggle="offcanvas"></a>
+      </p>
+    <div class="row">
+  <div class="col-md-3 offset-1">
+      <a href="javascript:void(0)" class="thumbnail uc-zyl" id="data2">
+          <if condition="$persons.photo eq null">
+            <img src="__AVATAR__/nophoto.gif">
+          <else/>
+            <img src="__AVATAR__/avatar_<{$persons.photo}>"></if>
+            <label class="pic-text">点击设置个性图像</label>
+        </a>
+  </div>
+      <div class="col-md-8"><p>
+      <strong></strong>
+      <span class="text-muted"></span>
+      <a href="javascript:void(0)" id="person3">编辑资料</a>
+      </p>
+      注册时间<p class="text-muted"><{$persons.regtime|date="Y-m-d H:m:s",###}></p>
+      注册ip<p class="text-muted"><{$persons.regip}></p>
+    </div>
+      </div>
+	</div> 
+      </div>
+	</div> 
+  </div>
+  <div class="col-lg-4 col-md-4 sidebar">
+    <div class="clean"></div>
+    <aside class="panel panel-default">
+    </aside>
+  </div>
+  <div class="clean"></div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  $('#goTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+  $('#goBottom').click(function(){$('html,body').animate({scrollTop:$('#footer').offset().top}, 800);});
+  $('#goComments').click(function(){$('html,body').animate({scrollTop:$('#comments').offset().top}, 800);});
+  $('#refresh').click(function(){location.reload();});
+});
+</script>
+</body>
+</html>

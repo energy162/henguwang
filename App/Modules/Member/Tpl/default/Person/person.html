@@ -1,0 +1,54 @@
+
+<script>
+	$(function(){
+	$('#Data').click(function(){
+		$.post("__APP__/Member/Person/data",{},function(data){
+			$('#content').html(data);
+			//alert(data);
+		});
+ 		
+	});
+	$('#avatar1').click(function(){
+		$.post("__APP__/Member/Person/avatar",{},function(data){
+			$('#content').html(data);
+			//alert(data);
+		});
+ 		
+	});
+})
+</script>
+<div class="uc_right" >
+	<div class="">
+		<ul class="nav nav-tabs r_nav_title">
+			<li class="active"><a>基本资料</a></li>
+			<li><a href="javascript:void(0)" id="Data">头像修改</a></li>
+		</ul>
+	</div>
+
+<div class="r_form_e row" id="content">
+	<div class="col-md-8">
+		<form action="<{:U('Person/Profile')}>" method="post">
+			<input type="hidden" name="id" value="<{$persons.user_id}>">
+				<table class="table">
+					<tbody>
+					<tr>
+						<th class="`">用户名</th>
+						<td><{$persons.username}></td>
+
+					</tr>
+					<tr>
+						<th>email</th>
+							<td><input type="text" class="form-control" name="email" value="<{$persons.email}>"></td>
+
+							
+							
+					</tr>
+							 <td colspan="2">
+								<button class="btn  btn-primary right">提交信息</button>
+							</td>
+									</tr>
+								</tbody></table>
+							</form>
+							</div>
+						</div>
+					</div>
