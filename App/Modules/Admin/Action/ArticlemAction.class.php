@@ -327,13 +327,13 @@ class ArticlemAction extends CommonAction{
 		}
 		$model = D('Article');
 		$map = array();
-		// foreach ($model->getDbFields() as $key => $val) {
-		// 	if (substr($key, 0, 1) == '_')
-		// 		continue;
-		// 	if (isset($_REQUEST[$val]) && $_REQUEST[$val] != '') {
-		// 		$map[$val] = $_REQUEST[$val];
-		// 	}
-		// }
+		 foreach ($model->getDbFields() as $key => $val) {
+		 	if (substr($key, 0, 1) == '_')
+		 		continue;
+		 	if (isset($_REQUEST[$val]) && $_REQUEST[$val] != '') {
+		 		$map[$val] = $_REQUEST[$val];
+		 	}
+		 }
 		return $map;
 	}
 	
