@@ -53,8 +53,9 @@
 					</td>
 					
 					<td>
+					    <a href="<?php echo U('Admin/articlem/index',array('tid'=>$vo['id']));?>" target="navTab">查看文章</a> |  
 						<a href="__URL__/add/id/<?php echo ($vo["id"]); ?>/name/<?php echo ($vo["name"]); ?>" target="dialog">添加子分类</a> |  
-						<a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>/name/<?php echo ($vo["name"]); ?>" target="dialog">修改</a> 
+						<a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>/name/<?php echo ($vo["name"]); ?>" target="dialog">修改</a>
 						<!-- <a href="__URL__/delete/id/{item_id}/navTabId/listcate" target="ajaxTodo" title="确定要删除吗?">删除</a> -->
 					</td>
 					
