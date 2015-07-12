@@ -123,3 +123,18 @@ a:hover{color:#c00;text-decoration:underline;}
 
 .list1 ol{_display:inline-block;overflow:hidden; padding:0; margin:0; float:left}
 .list1 ol li{width:61px;float:left;margin-right:5px;height:22px;line-height:22px;}
+/*分页*/
+.pgs { margin: 0 auto; padding-top: 20px; padding-bottom: 20px; text-align: center; width: 630px; margin-right: 0; position: relative; }
+.pg { line-height: 26px; position: absolute; right: 5px; top: 5px; }
+.pg a { text-decoration: none; }
+.pg a, .pg strong, .pg label { float: left; display: inline; margin-left: 4px; padding: 0 8px; height: 26px; border: 1px solid; border-color: #e5e5e5; background-color: #fff; background-repeat: no-repeat; color: #252525; overflow: hidden; text-decoration: none; }
+.pg a.nxt { padding: 0 10px; }
+.pg a:hover { border-color: #eb6e14; color: #fff; background-color: #eb6e14; text-decoration: none; }
+.pg a.nxt { padding-right: 25px; background-image: url(../images/arw_r.gif); background-position: 90% 50%; }
+.pg a.prev { background-image: url(../images/arw_l.gif); background-position: 50% 50%; }
+.pg a:hover.nxt { background-image: url(../images/arw_h_r.gif); }
+.pg a:hover.prev { background-image: url(../images/arw_h_l.gif); }
+.pg strong { border-color: #eb6e14; color: #fff; background-color: #eb6e14; }
+.pg label { cursor: text; }
+.ie6 .pg label { padding-top: 3px; height: 23px; }
+.pg label .px { padding: 0; width: 30px; height: 16px; line-height: 16px; border: solid 1px #d7d7d7; text-align: center; }
