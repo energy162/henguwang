@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="{$metas['keywords']}">
+    <meta name="description" content="{$metas['description']}">
+    <title>{$data['stock']['shortName']}（{$data['stock']['code']}）-恨股网</title>
+    <meta name="keywords" content="{$metas['keywords']}">
+    <meta name="description" content="{$metas['description']}">
+    <style type="text/css"></style>
+    <link href="__PUBLIC__/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/silder.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/js/function.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/js/highstock.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/js/chartExt.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/js/slides.min.jquery.js"></script>
+</head>
+<body>
+<include file="Public:top"/>
+<div class="page">
+    <div class="zs-left" style="display: none"><a href="#"><img src="__PUBLIC__/images/left.jpg" width="15" height="27" border="0"></a></div>
+    <div class="zs-right" style="display: none"><a href="#"><img src="__PUBLIC__/images/right.jpg" width="15" height="27" border="0"></a></div>
+    <div class="ny-left">
+        <div class="gszl">
+            <p>公司资料</p>
+            <ul>
+                <li class="z1"><a href="http://guba.eastmoney.com/list,{$data['stock']['code']}.html" target="_blank">公司股吧</a></li>
+                <li class="z2"><a href="http://data.p5w.net/stock/fxpj.php?code={$data['market']}{$data['stock']['code']}" target="_blank">投资评级</a></li>
+                <li class="z1"><a href="http://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllNewsStock/symbol/{$data['market']}{$data['stock']['code']}.phtml" target="_blank">公司新闻</a></li>
+                <li class="z2"><a href="http://data.eastmoney.com/report/{$data['stock']['code']}.html" target="_blank">盈利预测</a></li>
+                <li class="z1"><a href="http://data.p5w.net/stock/lsgg.php?code={$data['market']}{$data['stock']['code']}" target="_blank">公司公告</a></li>
+                <li class="z2"><a href="http://data.eastmoney.com/zjlx/{$data['stock']['code']}.html" target="_blank">资金流向</a></li>
+                <li class="z1"><a href="http://f10.eastmoney.com/f10_v2/FinanceAnalysis.aspx?code={$data['market']}{$data['stock']['code']}" target="_blank">财务数据</a></li>
+                <li class="z2"><a href="http://vip.stock.finance.sina.com.cn/q/go.php/vReport_List/kind/search/index.phtml?symbol={$data['stock']['code']}&t1=all" target="_blank">公司研报</a></li>
+                <li class="z1"><a href="http://f10.eastmoney.com/f10_v2/ShareholderResearch.aspx?code={$data['market']}{$data['stock']['code']}" target="_blank">主要股东</a></li>
+                <li class="z2"><a href="http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpInfo/stockid/{$data['stock']['code']}.phtml" target="_blank">公司概况</a></li>
+            </ul>
+            <div style="clear:both;display:block; "></div>
+        </div>
+        <div class="gszl">
+            <p>涨幅榜（{$data['maxdate']|strtotime|date='md',###}）</p>
+            <div class="tline">
+                <ul>
+                    <li class="fj1 blue">名称</li>
+                    <li class="fj2 blue">最新价</li>
+                    <li class="fj3 blue">涨幅</li>
+                </ul>
+            </div>
+            <volist name="data['uplist']" id="vo">
+                <div class="tline">
+                    <ul>
+                        <li class="fj1"><a href="__URL__/view/code/{$vo.ob_seccode}" target="_blank">{$vo.ob_secname}</a></li>
+                        <li class="fj2">{$vo.f007n}</li>
+                        <li class="fj3 red">{$vo.f015n}%</li>
+                    </ul>
+                </div>
+            </volist>
+
+
+        </div>
+        <div class="gszl">
+            <p>跌幅榜（{$data['maxdate']|strtotime|date='md',###}）</p>
+            <div class="tline">
+                <ul>
+                    <li class="fj1 blue">名称</li>
+                    <li class="fj2 blue">最新价</li>
+                    <li class="fj3 blue">跌幅</li>
+                </ul>
+            </div>
+            <volist name="data['downlist']" id="vo">
+                <div class="tline">
+                    <ul>
+                        <li class="fj1"><a href="__URL__/view/code/{$vo.ob_seccode}" target="_blank">{$vo.ob_secname}</a></li>
+                        <li class="fj2">{$vo.f007n}</li>
+                        <li class="fj3 green">{$vo.f015n}%</li>
+                    </ul>
+                </div>
+            </volist>
+
+        </div>
+    </div>
+    <div class="ny-center">
+        <div class="gegu">
+            <div class="gumc">{$data['stock']['name']}
+                <p>（{$data['stock']['code']}）</p>
+            </div>
+            <div class="sj"><span>涨幅：{$data['trade']['s10']}% </span><span>现价：{$data['trade']['s6']}元 </span><span>涨跌：{$data['trade']['s11']}</span><span>今开：{$data['trade']['s3']}元</span><span>最高：{$data['trade']['s4']}元</span><span>最低：{$data['trade']['s5']}元</span></div>
+        </div>
+        <div class="comment">统计显示，日K线历史上相似走势共：{$data['probability']['num1']}个；{$data['probability']['days1']}个交易日上涨概率{$data['probability']['fiveDayUp1']}%，涨幅超过5%的概率{$data['probability']['fiveDayUp51']}%，涨幅超过10%的概率为{$data['probability']['fiveDayUp101']}%；10日交易日涨幅超过5%的概率为{$data['probability']['tenDayUp51']}%，涨幅超过10%的概率为{$data['probability']['tenDayUp101']}%。（下图中ABCDE标记的即为相似K线）</div>
+        <div class="clear"></div>
+        <div class="Menubox">
+            <ul class="Gray">
+                <li id="san1" class="hover"><a href="#">日 线</a></li>
+            </ul>
+        </div>
+        <div class="Contentbox">
+            <div id="con_san_1" class="hover" style="height: 349px;width: 474px;padding:0;">
+                <div id="container" style="height: 349px;width: 474px">
+                </div></div>
+            <div id="con_san_2" style="display:none"> <img src="__PUBLIC__/images/pic1.jpg" width="474" height="349"> </div>
+        </div>
+        <div class="clear"></div>
+        <div class="Menubox2">
+            <ul class="Gray">
+                <li id="er1" class="hover"><a href="#">历史类似走势</a></li>
+            </ul>
+        </div>
+        <div id="slides">
+            <div class="slides_container" >
+            <if condition="$data['trend']">
+
+                <volist  name="data['trend']" id="vo">
+                    <div class="slide">
+                        <div class="lszs">
+                            <p><a href="__URL__/view/code/{$vo.code}" target="_blank">{$vo.name}({$vo.code})</a> <span>历史相似日期：{$vo.date}</span></p>
+                        </div>
+                        <div id="container{$i}" style="height: 349px;width: 474px;">
+                        </div>
+                    </div>
+                </volist>
+
+                <else/>
+                <div class="slide">
+                    <div class="lszs">
+                            <p>你遇上了一个奇葩，这个走势在历史上没出现过哦！</p>
+                    </div>
+                        <div style="height: 349px;width: 474px;">
+                        </div>
+</div>
+                </if>
+        </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <include file="Index:nav_right"/>
+    <div style="clear:both;display:block; "></div>
+</div>
+<include file="Public:foot"/>
+<script type="text/javascript">
+    //绘制K线图
+    function tradeChart(){
+        var url="__APP__/Stock/kline";
+        var stockCode = "{$data['stock']['code']}";
+        var stockName = "{$data['stock']['name']}";
+        var enddate="{$data['maxdate']}";
+        new highStockChart('container',url, {"code":stockCode,"name":stockName,"enddate":enddate});
+    <volist  name="data['trend']" id="vo">
+        var stockCode2="{$vo.code}";
+        var stockName2="{$vo.name}";
+        var stockDate="{$vo.date}";
+        new highStockChart('container{$i}',url,{"code":stockCode2,"name":stockName2,"date":stockDate});
+    </volist>
+        //$('.slide').eq(0).show();
+    }
+
+    function makesilder()
+    {
+        if (typeof useEffect == "undefined") { useEffect = 'slide' };
+        var isTouch = typeof window.ontouchstart !== 'undefined';
+        var mySildes = $('#slides');
+        if (!isTouch && $('.slide', mySildes).size() > 1) {
+            $('<a href="#" onfocus="this.blur()" class="prev"></a>').appendTo(mySildes).hide();
+            $('<a href="#" onfocus="this.blur()" class="next"></a>').appendTo(mySildes).hide();
+            // mySildes.hover(function () {
+            $('.prev').show();
+            $('.next').show();
+            // }, function () {
+            //     $('.prev').hide();
+            //     $('.next').hide();
+            //});
+
+        }
+        else {
+            useEffect = 'slide';
+        }
+        mySildes.slides({
+            preload: true,
+            preloadImage: '__PUBLIC__/images/loading.gif',
+            fadeSpeed: 1200,
+            hoverPause: true,
+            start: 1,
+            effect: useEffect,
+            crossfade: true,
+            paginationClass: 'pagination',
+            generatePagination: false,
+            container: 'slides_container',
+            animationStart: function (current) {
+                //
+                //alert(current);
+            },
+            animationComplete: function (current) {
+                // var tmp = $('.slide', mySildes);
+                // var b = parseInt($('.caption', tmp.eq(current - 1)).height() - 15);
+                // $('.pagination').css({ bottom: b }).show();
+
+            },
+            slidesLoaded: function () {
+                //var tmp = $('.slide', mySildes);
+                //var b = parseInt($('.caption', tmp.eq(0)).height() - 15);
+                //$('.pagination').css({ bottom: b }).show();
+                //alert('load');
+            }
+        });
+    }
+
+    $(function() {
+        tradeChart();
+        makesilder();
+    });
+</script>
+</body>
+</html>

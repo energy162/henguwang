@@ -1,0 +1,367 @@
+[ 2015-07-12T15:26:21+08:00 ] 183.60.35.94 /sostock/index.php?s=/Index/uplist
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000456s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000903s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000359s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000240s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008603s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008648s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000198s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000207s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000144s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000889s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000354s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000391s ]
+
+[ 2015-07-12T15:26:21+08:00 ] 183.60.62.44 /sostock/index.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.004464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004512s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008058s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000209s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000192s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000152s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000265s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000922s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2015-07-12T15:26:21+08:00 ] 163.177.69.37 /sostock/index.php?s=Index/view/code/000001
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000429s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000685s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000498s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000443s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003393s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000299s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000137s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004305s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004306s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000672s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000190s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013066s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013164s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000257s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000210s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000122s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000261s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000960s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000359s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000398s ]
+
+[ 2015-07-12T19:56:56+08:00 ] 223.73.1.250 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000599s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000327s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000792s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000457s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000471s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000421s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.004189s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.002045s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000143s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004407s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004326s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000672s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000172s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012723s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012781s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000252s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000223s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000121s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000242s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000944s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000347s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2015-07-12T19:56:57+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000469s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000535s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000860s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000330s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000486s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-10' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000896s ]
+
+[ 2015-07-12T19:57:35+08:00 ] 223.73.1.250 /sostock/index.php?s=/Index/uplist
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000494s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000558s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000925s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000390s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000256s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008491s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008547s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000198s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000213s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000118s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000227s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000861s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000329s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000369s ]
+
+[ 2015-07-12T19:57:43+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000458s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000779s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000481s ]
+
+[ 2015-07-12T19:57:56+08:00 ] 223.73.1.250 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000542s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000741s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000482s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000448s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003540s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000321s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004614s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004616s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000618s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000183s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012873s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012919s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000239s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000193s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000130s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000252s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000919s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000349s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000394s ]
+
+[ 2015-07-12T19:57:57+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000468s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000533s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000794s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000493s ]
+
+[ 2015-07-12T19:58:05+08:00 ] 223.73.1.250 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000549s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000625s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000433s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000839s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000534s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000425s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003581s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000307s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000158s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004331s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004277s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000676s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000173s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012796s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012844s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000255s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000197s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000136s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000237s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000932s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000341s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000379s ]
+
+[ 2015-07-12T19:58:05+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000636s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000697s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000731s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000501s ]
+
+[ 2015-07-12T19:58:11+08:00 ] 223.73.1.250 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000439s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000502s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000759s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000526s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000452s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003523s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000377s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000145s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004684s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004297s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000792s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000197s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012557s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012619s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000233s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000195s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000889s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000356s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000397s ]
+
+[ 2015-07-12T19:58:12+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000429s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000512s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000790s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000488s ]
+
+[ 2015-07-12T19:58:57+08:00 ] 223.73.1.250 /sostock/index.php?s=/Index/view/code/600247
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000454s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000794s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='600247' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000409s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000461s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000381s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000417s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003518s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000332s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000142s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004390s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004305s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000655s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000180s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012830s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012878s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000238s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000219s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000119s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000234s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000917s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000321s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000360s ]
+
+[ 2015-07-12T19:58:58+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000456s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000521s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000730s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000379s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000460s ]
+
+[ 2015-07-12T21:00:46+08:00 ] 223.73.1.250 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000465s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000526s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000861s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000474s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000438s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003573s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000310s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000145s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004527s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.005040s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000827s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000218s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012388s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012432s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000234s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000195s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000150s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000257s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000943s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000318s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000355s ]
+
+[ 2015-07-12T21:00:48+08:00 ] 223.73.1.250 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000430s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000781s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000476s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-10' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000802s ]
+

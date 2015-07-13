@@ -1,0 +1,76 @@
+.slides_container {
+    width:474px;
+    position:relative;
+    display:none;
+}
+.slides_container .slide
+{
+    width: 474px;
+    height: 409px;
+    display: block;
+}
+.pagination
+{
+    bottom: 10px;
+    right: 15px;
+    position: absolute;
+    z-index: 9001;
+    display: none;
+}
+.pagination li
+{
+    margin: 0px;
+    float: left;
+    list-style-image: none;
+}
+.pagination li a
+{
+    width: 15px;
+    height: 0px;
+    overflow: hidden;
+    padding-top: 15px;
+    float: left;
+    display: block;
+    background-image: url("../images/dots.png");
+    _background-image: url("../images/dots.gif");
+}
+.pagination li a:hover
+{
+    background-position: 0px -15px;
+}
+.pagination li.current a
+{
+    background-position: 0px -30px;
+}
+#slides a.prev
+{
+    background: url("../images/left.jpg") no-repeat;
+    border: 0px;
+    width: 15px;
+    height: 27px;
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    z-index: 101;
+}
+#slides a.next
+{
+    background: url("../images/right.jpg") no-repeat;
+    border: 0px;
+    width: 15px;
+    height: 27px;
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    z-index: 101;
+}
+#slides a.next
+{
+    top: 810px;
+    right: 280px;
+}
+#slides a.prev
+{
+    left: 230px;
+    top: 810px;
+}

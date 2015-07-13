@@ -1,0 +1,867 @@
+[ 2015-07-11T09:55:45+08:00 ] 223.73.1.157 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000430s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000492s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000791s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000468s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000425s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003491s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000306s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000164s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004851s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004609s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000669s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000205s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013453s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013515s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000274s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000237s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000124s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000983s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000384s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000423s ]
+
+[ 2015-07-11T09:55:55+08:00 ] 223.73.1.157 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000431s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.001089s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000485s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-10' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000818s ]
+
+[ 2015-07-11T15:10:05+08:00 ] 223.73.1.157 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000436s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000757s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000502s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000435s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003474s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000304s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000143s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004498s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-10' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004253s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000670s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000173s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012321s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012371s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000264s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000205s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000125s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000937s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000329s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000373s ]
+
+[ 2015-07-11T15:10:15+08:00 ] 223.73.1.157 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-10
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000697s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000740s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000464s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-10' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000770s ]
+
+[ 2015-07-11T15:31:31+08:00 ] 223.73.1.157 /sostock/index.php?s=Index/view/code/000001/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000432s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000516s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.001061s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000484s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000449s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003404s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000325s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000139s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004437s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004200s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000636s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000172s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013048s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000243s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000220s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000919s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000358s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000397s ]
+
+[ 2015-07-11T15:31:31+08:00 ] 223.73.1.157 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-07
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000448s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000510s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000719s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000469s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-07' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000813s ]
+
+[ 2015-07-11T15:43:59+08:00 ] 223.73.1.157 /sostock/index.php?s=/Index/uplist
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000429s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000490s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000949s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000317s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000244s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008681s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008727s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000196s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000192s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000163s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000891s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000320s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000354s ]
+
+[ 2015-07-11T15:44:03+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s1&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000456s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000902s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000240s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008229s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008270s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000191s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000184s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000115s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000244s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000838s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000309s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000344s ]
+
+[ 2015-07-11T15:44:05+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000445s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000506s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000937s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000242s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008688s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008736s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000202s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000214s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000119s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000874s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000323s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000358s ]
+
+[ 2015-07-11T15:44:06+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000510s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000572s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000889s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000255s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008812s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008858s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000197s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000213s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000119s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000244s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000879s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000325s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000380s ]
+
+[ 2015-07-11T15:44:08+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000451s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000513s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000876s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008379s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000211s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000184s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000222s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000837s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000338s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000374s ]
+
+[ 2015-07-11T15:44:08+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000422s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000847s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000237s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008830s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000236s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000187s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000220s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000863s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000371s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2015-07-11T15:44:08+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000426s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000488s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000907s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000245s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008594s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000198s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000193s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000223s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000834s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000336s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2015-07-11T15:44:09+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000455s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000878s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000238s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008502s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000192s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000185s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000115s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000241s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000836s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000312s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000347s ]
+
+[ 2015-07-11T15:44:09+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000451s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000905s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000257s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008814s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000202s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000189s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000288s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000918s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000346s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000381s ]
+
+[ 2015-07-11T15:44:09+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000447s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000509s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000921s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000300s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000236s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008594s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008637s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000196s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000198s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000123s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000242s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000868s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000333s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2015-07-11T15:44:11+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000444s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.005237s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000255s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008289s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008331s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000192s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000205s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000221s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000837s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000345s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000380s ]
+
+[ 2015-07-11T15:44:12+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s1&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000428s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000490s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000886s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000313s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008746s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008791s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000218s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000193s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000120s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000880s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000339s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000374s ]
+
+[ 2015-07-11T15:44:12+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000451s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000513s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000884s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000266s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008881s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008924s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000220s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000187s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000123s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000228s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000880s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000358s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000394s ]
+
+[ 2015-07-11T15:44:13+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000450s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000512s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.001196s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000442s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000308s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010025s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010076s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000232s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000192s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000117s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000225s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000871s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000348s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2015-07-11T15:44:13+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000430s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000908s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000308s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008699s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008753s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000218s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000188s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000114s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000222s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000851s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000351s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2015-07-11T15:44:14+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000441s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000927s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008751s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008797s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000204s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000195s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000128s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000899s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000344s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2015-07-11T15:44:16+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s1&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000455s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000882s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY fiveDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000243s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008568s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008610s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000194s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000193s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000119s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000252s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000868s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000315s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000351s ]
+
+[ 2015-07-11T15:44:17+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s2&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000458s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000973s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp51 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000259s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008649s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008695s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000206s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000192s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000147s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000226s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000885s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000379s ]
+
+[ 2015-07-11T15:44:17+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000716s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000829s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000504s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000875s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000240s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008636s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000195s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000184s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000244s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000842s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000318s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2015-07-11T15:44:18+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000503s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000565s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000961s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000260s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008718s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008766s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000200s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000200s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000195s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000251s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000951s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000335s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000370s ]
+
+[ 2015-07-11T15:44:20+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s4&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000457s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000902s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY twentyDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000243s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008726s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008784s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000197s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000185s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000222s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000854s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000325s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000362s ]
+
+[ 2015-07-11T15:44:21+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000428s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000490s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000890s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000281s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008492s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008535s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000217s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000193s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000144s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000888s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000379s ]
+
+[ 2015-07-11T15:44:22+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000424s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000905s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000255s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008495s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008542s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000219s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000187s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000114s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000223s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000848s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000356s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000393s ]
+
+[ 2015-07-11T15:44:23+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000461s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000523s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000879s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000307s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008673s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008757s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000314s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000239s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000176s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000289s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001165s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000378s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000438s ]
+
+[ 2015-07-11T15:44:23+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000436s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000498s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000893s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000297s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000244s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008472s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008517s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000200s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000189s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000115s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000245s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000857s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000328s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000364s ]
+
+[ 2015-07-11T15:44:24+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000441s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000503s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000918s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000263s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008674s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008744s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000204s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000191s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000123s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000232s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000855s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2015-07-11T15:44:24+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000445s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000507s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000923s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000240s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008656s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008703s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000197s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000188s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000137s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000227s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000853s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000322s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000358s ]
+
+[ 2015-07-11T15:44:25+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000465s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000532s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000900s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 ASC,a.code asc LIMIT 0,30   [ RunTime:0.000246s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008467s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008512s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000212s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000415s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000178s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000253s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001195s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000431s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000469s ]
+
+[ 2015-07-11T15:44:26+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000443s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000509s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000889s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000241s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008637s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008679s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000193s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000205s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000124s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000223s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000855s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000312s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000346s ]
+
+[ 2015-07-11T15:44:30+08:00 ] 223.73.1.157 /sostock/index.php?s=/Index/view/code/600247
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000427s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000754s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='600247' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000494s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000469s ]
+SQL: SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9,F015N s10 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 ) ORDER BY OB_TRADEDATE desc LIMIT 1   [ RunTime:0.000578s ]
+SQL: SHOW COLUMNS FROM `ts_trend` [ RunTime:0.000628s ]
+SQL: SELECT `fiveDayValue` FROM `ts_trend` WHERE ( code='000001' ) ORDER BY date desc LIMIT 1   [ RunTime:0.003462s ]
+SQL: SELECT a.code,b.name,a.date FROM `ts_trend` `a`,`ts_info` `b` WHERE ( a.code!='000001' and a.fiveDayValue='357224861337222' and a.code=b.code ) ORDER BY a.date desc LIMIT 0,10   [ RunTime:0.000327s ]
+SQL: SELECT MAX(OB_TRADEDATE) AS tp_max FROM `tb_trade` LIMIT 1   [ RunTime:0.000147s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' ) ORDER BY F015N desc LIMIT 0,10   [ RunTime:0.004249s ]
+SQL: SELECT `ob_seccode`,`ob_secname`,`f007n`,`f015n` FROM `tb_trade` WHERE ( OB_TRADEDATE='2015-07-07' and f015n IS NOT NULL ) ORDER BY F015N asc LIMIT 0,10   [ RunTime:0.004100s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000630s ]
+SQL: SELECT * FROM `ts_probability` WHERE ( code='000001' ) LIMIT 1   [ RunTime:0.000171s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012323s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012371s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000251s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000199s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000121s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000231s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000913s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000339s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2015-07-11T15:44:30+08:00 ] 223.73.1.157 /sostock/index.php?s=/Stock/kline/code/000001/enddate/2015-07-07
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000418s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `ts_info` [ RunTime:0.000692s ]
+SQL: SELECT * FROM `ts_info` WHERE ( code='000001' and statuscode='013001' ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `tb_trade` [ RunTime:0.000504s ]
+SQL: SELECT * FROM ( SELECT OB_TRADEDATE s1,F002N s2,F003N s3,F005N s4,F006N s5,F007N s6,F015N s7,F004N s8,F017N s9 FROM `tb_trade` WHERE ( ob_seccode='000001' and f004n>0 and OB_TRADEDATE<='2015-07-07' ) ORDER BY OB_TRADEDATE desc LIMIT 0,30   ) a ORDER BY s1 asc  [ RunTime:0.000796s ]
+
+[ 2015-07-11T17:18:57+08:00 ] 223.73.1.157 /sostock/index.php?s=%2FIndex%2Fuplist&p=1&order=s3&desc=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000433s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ts_probability` [ RunTime:0.000891s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) LIMIT 1   [ RunTime:0.000308s ]
+SQL: SELECT a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,`tenDayUp51`,`tenDayUp101`,`twentyDayUp101` FROM ts_probability a WHERE ( a.`date`=(select max(`date`) from ts_probability) ) ORDER BY tenDayUp101 DESC,a.code asc LIMIT 0,30   [ RunTime:0.000242s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008993s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009039s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000222s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000209s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000138s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000224s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000899s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000348s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000384s ]
+
