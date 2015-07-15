@@ -20,6 +20,11 @@ class ArticleAction extends CommonAction
 		}
 		$article['pubtime'] = date('Y年m月d日 H:i',$article['pubtime']);
 
+		//判断是否跳转
+		if($article['islink']) {
+			header("location:" . $article['url']);
+		}
+
 		//权限判断
 		$model = M('category');
 		$id = $article['tid'];

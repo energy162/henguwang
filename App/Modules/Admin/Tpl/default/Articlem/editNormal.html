@@ -16,6 +16,14 @@
 				<dt>文章来源：</dt>
 				<dd><input type="text" class=""  style="width:100%" name="source" value="<{$vo.source}>"/></dd>
 			</dl>
+			<dl class="nowrap">
+				<dt>是否链接：</dt>
+				<dd><input type="checkbox" name="islink" value="1" <if condition="$vo.islink eq 1">checked</if> />选中该项访问时会跳转到填写的外链地址</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>链接地址：</dt>
+				<dd><input type="text" style="width:50%" name="url" value="<{$vo.url}>"/></dd>
+			</dl>
 			<dl>
 				<dt>作者：</dt>
 				<dd><input type="text" class=""  style="width:100%" name="author" value="<{$vo.author}>"/></dd>

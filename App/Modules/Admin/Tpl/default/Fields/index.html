@@ -26,6 +26,8 @@
 					<td>
 						<if condition="$vo.field eq 'license'">会员注册协议
 						<elseif condition="$vo.field eq 'copyright'"/>站点版权
+						<elseif condition="$vo.field eq 'keyword'"/>站点关键字
+						<elseif condition="$vo.field eq 'des'"/>站点描述
 						<else/>
 						站点描述
 					    </if>
