@@ -1,0 +1,171 @@
+.pagination {
+	font-size: 80%;
+	float: right;
+}
+
+.pagination a {
+	text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+}
+
+.pagination a,.pagination span {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border: 1px solid #838383;
+	background: #fff;
+	line-height: 24px;
+	text-align: center;
+	color: #838383;
+	font-family: 宋体;
+	font-weight: bold;
+	margin-left: 15px;
+	float: left;
+	font-size: 12px;
+}
+
+.pagination .current {
+	background-color: #0697da;
+	color: #fff;
+	border: 1px solid #0697da;
+}
+
+.pagination .current.prev,.pagination .current.next {
+	color: #999;
+	border-color: #999;
+	background: #fff;
+	font-family: 宋体;
+	font-weight: bold;
+}
+
+.pagination .current.notable {
+	border: 1px solid #e5e4e2;
+	background: #e5e4e2;
+	line-height: 24px;
+	text-align: center;
+	color: #fff;
+}
+
+
+
+
+
+.body_middle_bg
+{
+background-color:#FFFFFF;
+width:1130px;
+margin:0 auto;
+
+}
+
+.hei_h1
+{
+height:28px;
+width:100%;
+}
+
+
+
+a.policy_left
+{
+	text-align:left;
+color:#888888;
+font-size:14px;
+line-height:25px;
+margin-bottom:5px;
+font-family:宋体;
+text-decoration:none;
+}
+
+
+.policy_title_icon01
+{
+background: url(images/policy_ico1.jpg) no-repeat;
+width:27px;
+height:33px;
+float:left;
+}
+
+.policy_title_font
+{
+font-size:28px;
+color:#171717;
+float:left;
+margin-left:10px;
+font-weight:bold;
+line-height:36px;
+width:180px;
+}
+
+
+
+
+.policy_title_p01
+{
+color:#999999;
+font-size:16px;
+text-decoration:none;
+height:40px;
+line-height:40px;
+padding-right:30px;
+}
+
+a.policy_title_p01:hover
+{
+color:#3400ff;
+}
+
+
+
+
+.policy_line
+{
+width:710px;
+height:72px;
+border-bottom:1px solid  #CCCCCC;
+/* margin-bottom:20px; */
+}
+
+
+
+.policy_title_font01 {
+text-align:left;
+margin-bottom: 10px;
+}
+
+
+.policy_line_on_title {
+height: 20px;
+}
+
+
+.policy_p
+{
+color:#333333;
+font-size:19px;
+height:32px;
+font-size:20px;
+text-decoration:none;
+}
+
+
+
+
+
+.policy_p_time
+{
+color:#888888;
+font-size:12px;
+line-height:20px;
+float:right;
+width:50px;
+font-family:宋体;
+}
+
+
+
+
