@@ -6,6 +6,8 @@ class IndexAction extends PublicAction {
     }
     public function view()
     {
+		$common = A('Index/Common');
+
         $code=I('get.code');
 
         if($code=="")
