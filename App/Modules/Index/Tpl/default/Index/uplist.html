@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="<{$metas['keywords']}>">
+    <meta name="description" content="<{$metas['description']}>">
+<title>上涨概率排行榜</title>
+<import type='css' file="css.global,css.style" />
+<import file="js.function,js.tools,js.jquery" />
+</head>
+<body>
+<div class="top">
+  <div class="page">
+    <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
+    <div class="user2">
+      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
+    </div>
+    <div class="search-ny">
+      <input name="code" type="text" id="_code">
+      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+  </div>
+</div>
+<div class="page">
+    <div class="ph-center">
+        <div class="bzgl">上涨概率排行榜</div>
+        <div class="bzbg">
+            <table width="727" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr bgcolor="#B0C1E3">
+                    <td><table width="100%" border="0" cellspacing="1" cellpadding="6">
+                        <tr class="white">
+                            <th width="10%" height="30" align="center" bgcolor="#4c73c1">股票代码</th>
+                            <th width="11%" height="30" align="center" bgcolor="#4c73c1">股票简称</th>
+                            <th width="15%" bgcolor="#4c73c1">收盘价</th>
+                            <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's1'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s1" href="javascript:;">5日涨幅超过<br />5%的概率</a></th>
+                            <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's2'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s2" href="javascript:;">5日涨幅超过<br />10%的概率</a></th>
+                            <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's3'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s3" href="javascript:;">10日涨幅超过<br />5%的概率</a></th>
+                            <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's4'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s4" href="javascript:;">20日涨幅超过<br />10%的概率</a></th>
+                        </tr>
+                        <volist name="data['list']" id="vo">
+                        <tr>
+                            <td height="30" align="center" bgcolor="#FFFFFF"><a href="__URL__/view/code/{$vo.code}" target="_blank"><{$vo.code}></a></td>
+                            <td height="30" align="center" bgcolor="#FFFFFF"><a href="__URL__/view/code/{$vo.code}" target="_blank"><{$vo.name}></a></td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.lastdayClose}></td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.fiveDayUp51}>%</td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.tenDayUp51}>%</td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.tenDayUp101}>%</td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.twentyDayUp101}>%</td>
+                        </tr>
+                        </volist>
+                        <tr>
+                            <td colspan="7"><div class="pgs"><{$data['page']}></div></td>
+                        </tr>
+                    </table></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="ny-right">
+<if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+<div class="yh"><if condition="$persons.photo eq null">
+            <img src="__PUBLIC__/images/pic4.jpg" width="63" height="63">
+          <else/>
+            <img src="__AVATAR__/avatar_<{$persons.photo}>" width="63" height="63"></if>
+  <p>用户名：<{$persons.username}> <br>
+    用户类型：<{$ranklist[$persons['user_rank']]}> <br>
+	到期时间：<if condition="$persons['expires_time'] neq $persons['regtime']">
+    <{$persons.expires_time|date='Y.m.d',###}><else/>永不过期</if></p>
+  <div class="yhzx1 white"><a href="<{:U('Member/Person/index/')}>">个人中心</a></div>
+  <div class="yhzx white"><a href="<{:U('Index/Index/support/')}>">我要赞助</a></div>
+  <div style="clear:both;display:block; "></div>
+</div>
+<div class="kx">
+  <p>K线选股</p>
+  <div class="xuangu">
+  <ul>
+    <Volist name="kxxg_list" id="articles" >
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+	</Volist>
+  </ul>
+  </div>
+</div>
+<div class="kx">
+  <p>财报选股</p>
+  <Volist name="cbxg_list" id="articles" >
+  <div <if condition="$key+1 eq count($cbxg_list)">class="jzx"<else />class="czx"</if>><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></div>
+  </Volist>
+</div>
+<div class="kx">
+<p>研报推荐</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="ybtj_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+<div class="kx">
+<p>专题</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="zt_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		</Volist>
+    </ul>
+</div>
+<else />
+<div class="kx">
+    <p>K线选股</p>
+<div class="jcyd">
+	<ul>
+    <Volist name="kxxg_list" id="articles" >
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+	</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+ 
+    <div class="kx">
+    <p>专题</p>
+<div class="jcyd">
+	<ul>
+    <Volist name="zt_list" id="articles" >
+	<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+	</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+<div class="banner-1"><img src="__PUBLIC__/images/banner.jpg" width="225" height="301"></div>
+
+<div class="kx">
+    <p>精彩阅读</p>
+<div class="jcyd">
+	<ul>
+		<li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
+
+	</ul>
+</div>
+</if>
+<div style="clear:both;display:block; "></div></div>
+    <div style="clear:both;display:block; "></div>
+</div>
+</div>
+<include file="Public:_footer" />
+<form name="myform" id="myform" method="get" action="__ACTION__">
+    <input type="hidden" name="s" value="/Index/uplist" />  <input type="hidden" name="p" value="<{$data['p']}>" /><input type="hidden" name="order" value="<{$data['order']}>" /><input type="hidden" name="desc" value="<{$data['desc']}>" />
+</form>
+<script type="text/javascript">
+    $("th[action-type='sort'] a").click(function () {
+        var form = $("#myform")[0];
+        var data = $(this).data('order');
+        if (data == form['order'].value) {
+            //排序字段相同，则切换排序方向
+            form['desc'].value = form['desc'].value == "0" ? "1" : "0";
+        } else {
+            form['order'].value = data;
+        }
+        form.submit();
+        return false;
+    });
+</script>
+</body>
+</html>
