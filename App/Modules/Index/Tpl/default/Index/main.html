@@ -88,7 +88,7 @@
 	</div>
     <div class="sj"><span>涨幅：<{$data['trade']['s10']}>% </span><span>现价：<{$data['trade']['s6']}>元 </span><span>涨跌：<{$data['trade']['s11']}></span><span>今开：<{$data['trade']['s3']}>元</span><span>最高：<{$data['trade']['s4']}>元</span><span>最低：<{$data['trade']['s5']}>元</span></div>
   </div>
-  <div class="comment">统计显示，日K线历史上相似走势共：<{$data['probability']['num1']}>个；<{$data['probability']['days1']}>个交易日上涨概率<{$data['probability']['fiveDayUp1']}>%，涨幅超过5%的概率<{$data['probability']['fiveDayUp51']}>%，涨幅超过10%的概率为<{$data['probability']['fiveDayUp101']}>%；10日交易日涨幅超过5%的概率为<{$data['probability']['tenDayUp51']}>%，涨幅超过10%的概率为<{$data['probability']['tenDayUp101']}>%。（下图中ABCDE标记的即为相似K线）</div>
+  <div class="comment">统计显示，日K线历史上相似走势共：<{$data['probability']['num1']}>个；<{$data['probability']['days1']}>个交易日上涨概率<{$data['probability']['fiveDayUp1']|round=###,2}>%，涨幅超过5%的概率<{$data['probability']['fiveDayUp51']|round=###,2}>%，涨幅超过10%的概率为<{$data['probability']['fiveDayUp101']|round=###,2}>%；10日交易日涨幅超过5%的概率为<{$data['probability']['tenDayUp51']|round=###,2}>%，涨幅超过10%的概率为<{$data['probability']['tenDayUp101']|round=###,2}>%。（下图中ABCDE标记的即为相似K线）</div>
   <div class="Menubox">
     <ul class="Gray">
 		<li id="san1" class="hover"><a href="#">日 线</a></li>
