@@ -3,3 +3,18 @@
     <div  class="tt"><span><a href="<{:U('Index/Index/about')}>"  style="color:#b7b7b7;">关于我们</a></span> EMAIL:3012644588@qq.com QQ:3012644588<br>
 本站所载文章及数据仅供分享，不可作为投资依据，股市有风险，入市需谨慎。</div></div>
 </div>
+<script type="text/javascript">
+$(function(){
+	$("#_code").val('输入股票代码，如600036');
+	$("#_code").focus(function(){
+		if($("#_code").val() == '输入股票代码，如600036'){
+			$("#_code").val('');
+		}
+	});
+	$("#_code").blur(function(){
+		if($("#_code").val() == ''){
+			$("#_code").val('输入股票代码，如600036');
+		}
+	});
+});
+</script>

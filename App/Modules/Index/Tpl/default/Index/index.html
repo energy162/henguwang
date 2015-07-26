@@ -45,5 +45,20 @@ body {
   <include file="Public:footer" />
   <!-- footer end -->
 </div>
+<script type="text/javascript">
+$(function(){
+	$("#_code").val('输入股票代码，如600036');
+	$("#_code").focus(function(){
+		if($("#_code").val() == '输入股票代码，如600036'){
+			$("#_code").val('');
+		}
+	});
+	$("#_code").blur(function(){
+		if($("#_code").val() == ''){
+			$("#_code").val('输入股票代码，如600036');
+		}
+	});
+});
+</script>
 </body>
 </html>
