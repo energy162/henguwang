@@ -10,7 +10,7 @@ class IndexAction extends CommonAction
 		$link=M('link');
 
 		//首页主板块
-		$dPushCats = $cats->limit('6')->where('ispush=1 and isverify=1')->relation(true)->select();
+		$dPushCats = $cats->limit('6')->where('ispush=1 and isverify=1')->order('sort ASC')->relation(true)->select();
 		$links=$link->where("isverify=1")->select();
 
 		//这个是页面下面的6个板块
