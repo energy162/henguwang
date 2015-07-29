@@ -31,7 +31,14 @@ class ArticleAction extends CommonAction
 		$category = $model->find($id);
 		$allow_rank = unserialize($category['visit']);
 		if(!in_array($result['user_rank'], $allow_rank)) {
-			$this->error('访问权限不足，请升级会员');
+			if(empty($result))
+			{
+				$this->error('请先注册登录');
+			}
+			else
+			{
+				$this->error('访问权限不足，请升级会员');
+			}
 		}
 
 		

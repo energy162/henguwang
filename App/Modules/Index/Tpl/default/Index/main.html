@@ -10,7 +10,7 @@
 <body>
 <div class="top">
   <div class="page">
-    <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
+    <div class="ny-logo"><a href="__URL__"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></a></div>
     <div class="user2">
       <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
     </div>
@@ -51,7 +51,7 @@
 		<volist name="data['uplist']" id="vo">
 			<div class="tline">
 				<ul>
-					<li class="fj1"><a href="__URL__/view/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
+					<li class="fj1"><a href="__URL__/Index/main/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
 					<li class="fj2"><{$vo.f007n}></li>
 					<li class="fj3 red"><{$vo.f015n}>%</li>
 				</ul>
@@ -72,7 +72,7 @@
 		<volist name="data['downlist']" id="vo">
 			<div class="tline">
 				<ul>
-					<li class="fj1"><a href="__URL__/view/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
+					<li class="fj1"><a href="__URL__/Index/main/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
 					<li class="fj2"><{$vo.f007n}></li>
 					<li class="fj3 green"><{$vo.f015n}>%</li>
 				</ul>
