@@ -33,11 +33,11 @@ class ArticleAction extends CommonAction
 		if(!in_array($result['user_rank'], $allow_rank)) {
 			if(empty($result))
 			{
-				$this->error('请先注册登录');
+				$this->error('您尚未登录，请先注册登录');
 			}
 			else
 			{
-				$this->error('访问权限不足，请升级会员');
+				$this->error('您还不是本站赞助用户，暂时无法访问');
 			}
 		}
 
