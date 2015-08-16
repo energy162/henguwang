@@ -237,3 +237,44 @@ function isint2($int){
 function isInteger($input){
     return preg_match('@^[1-9][0-9]*$@',$input) === 1;
 }
+
+/**
+  * 系统邮件发送函数
+  * @param string $to    接收邮件者邮箱
+  * @param string $subject 邮件主题 
+  * @param string $body    邮件内容
+  * @param string $attachment 附件列表
+  * @return boolean 
+  */
+ function send_mail($to, $subject = '', $body = '', $attachment = null){
+     $aTmp = C('THINK_EMAIL');
+
+	$aTmp['acceptor'] = $to; 
+	$aTmp['sendway'] = 'smtp';
+
+     vendor('Mail.email'); //从PHPMailer目录导class.phpmailer.php类文件
+     $email             = new email(); //PHPMailer对象
+
+	$loginfo = "无法发送测试邮件，下面是出错信息：";
+	if ($email->ready($aTmp)){
+		$res = $email->send($aTmp['acceptor'],$subject,$body,$aTmp);
+		if ($res){
+			$loginfo = "已成功发送一封测试邮件，请查看接收邮箱。";
+			//$this->endonly();
+			//$this->page('admin/emailsend/test/success.html');
+			return true;
+		}elseif ($email->errorinfo){
+			$err=$email->errorinfo;
+			$loginfo .= "<br>".$err['error'];
+		}
+	}
+	else{
+		$loginfo .= "<br>".var_export($email->smtp->error,true);
+	}
+
+     return false;
+ }
+
+function get_sign($id) {
+	return md5(md5($id . C('TOKEN')));
+}

@@ -21,7 +21,31 @@
                 $('input[name="username"]').after('<div class="ts_2" id="umessage" style="color:blue">注册名不能为空</div>');
             }
             })
-          });
+        });
+
+		$('input[name="email"]').focus(function(){
+          $('#umessage').remove();
+        });
+          
+        $('input[name="email"]').blur(function(){
+          var email=$(this).val();
+		  if(/(\S)+[@]{1}(\S)+[.]{1}(\w)+/.test(email) == false)
+			{
+				$('input[name="email"]').parent().parent().after('<div class="ts_2" id="umessage"  style="color:red">格式错误</div>');
+				return;
+			}
+            $.get('__APP__/Login/checkEmail',{'email':email},function(data){
+				if(email!=''){
+				  if(data=='不允许'){
+					$('input[name="email"]').parent().parent().after('<div class="ts_2" id="umessage"  style="color:red">该邮箱已经被使用</div>');
+				  }else{
+					$('input[name="email"]').parent().parent().after('<div class="ts_2" id="umessage" style="color:green">可以使用</div>');
+				  }
+				}else{
+					$('input[name="email"]').after('<div class="ts_2" id="umessage" style="color:blue">邮箱不能为空</div>');
+				}
+            });
+        });
       });
 
 function fleshVerify(type){ 

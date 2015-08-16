@@ -13,7 +13,8 @@ class Member_userModel extends Model{
 		 //array('password','require','确认密码必须填写！'),
 		 array('verify','require','验证码必须填写！'), 
 		 //array('repassword','password','确认密码不正确',0,'confirm'),
-		 array('email','email',"邮箱格式不正确"),  
+		 array('email','/^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d]+\-?)*[a-z\d]+\.)+([a-z]{2,})+$/i',"邮箱格式不正确"),  
+		 array('email','',"邮箱已存在",0,'unique',1),  
 		 array('pwd','require','密码必须填写！'),
 		 //array('rpwd','pwd','确认密码不正确',0,'confirm'),
 
