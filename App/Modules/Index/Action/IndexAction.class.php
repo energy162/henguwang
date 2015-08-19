@@ -86,6 +86,10 @@ class IndexAction extends CommonAction
 		$zt_list = M('Article')->where('tid=76')->order('article_id asc')->limit('10')->select();
 		$this->assign('zt_list',$zt_list);
 
+		//精彩阅读
+		$jcyd_list = M('Article')->where('tid=78')->order('article_id asc')->limit('10')->select();
+		$this->assign('jcyd_list',$jcyd_list);
+
 		//查询股票信息
 		$this->view();
 

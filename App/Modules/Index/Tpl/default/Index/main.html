@@ -151,7 +151,7 @@
   <div class="xuangu">
   <ul>
     <Volist name="kxxg_list" id="articles" >
-    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
 	</Volist>
   </ul>
   </div>
@@ -167,7 +167,7 @@
 <div class="ybtj">
 	<ul>
 		<Volist name="ybtj_list" id="articles" >
-		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
 		</Volist>
 	</ul>
 </div>
@@ -177,7 +177,7 @@
 <div class="ybtj">
 	<ul>
 		<Volist name="zt_list" id="articles" >
-		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
 		</Volist>
     </ul>
 </div>
@@ -187,7 +187,7 @@
 <div class="jcyd">
 	<ul>
     <Volist name="kxxg_list" id="articles" >
-    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
 	</Volist>
 	</ul>
 </div>
@@ -198,7 +198,7 @@
 <div class="jcyd">
 	<ul>
     <Volist name="zt_list" id="articles" >
-	<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></li>
+	<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title|msubstr=0,14,"utf-8",false}></a></li>
 	</Volist>
 	</ul>
 </div>
@@ -209,17 +209,9 @@
     <p>精彩阅读</p>
 <div class="jcyd">
 	<ul>
-		<li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-        <li><a href="#">银河证券：货币政策坚持现有基调</a></li>
-
+	    <Volist name="jcyd_list" id="articles" >
+		<li><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title|msubstr=0,15,"utf-8",false}></a></li>
+		</Volist>
 	</ul>
 </div>
 </if>

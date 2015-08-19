@@ -71,7 +71,18 @@ class LoginAction extends Action{
 
 				$to = $_POST['email'];
 				$subject = '恨股网会员注册激活邮件';
-				$body = '请访问该地址激活你在恨股网注册的会员:' . U('/index/Login/verify_email',array('uid'=>$addresult,'sign'=>$sign), true, false, true);;
+
+				$body = file_get_contents('email.html');
+				$body = preg_replace('/\\\\/','', $body); //Strip backslashes
+
+				$patterns = array();
+				$patterns[0] = '/{name}/';
+				$patterns[1] = '/{active_url}/';
+				$replacements = array();
+				$replacements[0] = $_POST['username'];
+				$replacements[1] = U('/index/Login/verify_email',array('uid'=>$addresult,'sign'=>$sign), true, false, true);
+				$body = preg_replace($patterns, $replacements, $body);
+
 				if(!send_mail($to, $subject, $body))
 				{
 					$this->error('验证邮件发送失败，请联系管理员',U('Login/index'));
