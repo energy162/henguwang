@@ -21,12 +21,17 @@ class CommonAction extends Action
 		//个人信息
 		$User=M('Member_user');
 		$id=$_SESSION[C('USER_AUTH_KEY_ID')];
-		$result =$User->find($id);
-		$result['expires_time'] = strtotime('+' . $result['expires_time'] . 'month', $result['regtime']);
+		$result = array();
+		if(!empty($id))
+		{
+			$result =$User->find($id);
+			$result['expires_time'] = strtotime('+' . $result['expires_time'] . 'month', $result['regtime']);
 
-		//新注册用户试用2天付费用户
-		if(strtotime('+2 days', $result['regtime']) > time()) {
-			$result['user_rank'] = 2;
+			//新注册用户试用2天付费用户
+			if(strtotime('+2 days', $result['regtime']) > time() || $result['user_rank']<2) {
+				$result['user_rank'] = 2;
+				$result['expires_time'] = strtotime('+2 days', $result['regtime']);
+			}
 		}
 
 		$this->persons = $result;
