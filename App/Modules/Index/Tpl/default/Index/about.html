@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="{$metas['keywords']}">
 <meta name="description" content="{$metas['description']}">
-<title>关于我们</title>
+<title>关于我们-恨股网-历史类似走势查询</title>
 <import type='css' file="css.global,css.style" />
 <import file="js.function,js.tools,js.jquery" />
 <style type="text/css">
@@ -16,13 +16,17 @@
 <body style="background-image:url(__PUBLIC__/images/bg.jpg)">
 <div class="top">
   <div class="page">
-    <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
+    <div class="ny-logo"><a href="/index.php?s=/Index/index/index/"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></a></div>
     <div class="user2">
-      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
-    </div>
+  <if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+  <a href="<{:U('Index/Login/doLogout')}>"  target="_Self">退出</a>
+  <else />
+  <a href="<{:U('Index/Login/index')}>">登录</a>&nbsp;<a href="<{:U('Index/Login/checkreg')}>">注册</a>
+  </if>
+  </div>
     <div class="search-ny">
       <input name="code" type="text" id="_code">
-      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+      <a href="javascript:void(0);" onClick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
   </div>
 </div>
 <div class="page" style="background-image:url(__PUBLIC__/images/bg.jpg)">

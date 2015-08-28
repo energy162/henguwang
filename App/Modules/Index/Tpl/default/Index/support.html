@@ -1,5 +1,5 @@
 ﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>赞助我们</title>
+<title>赞助我们-恨股网</title>
 <meta name="keywords" content="{$metas['keywords']}">
 <meta name="description" content="{$metas['description']}">
 <import type='css' file="css.global,css.style" />
@@ -15,18 +15,22 @@
   <div class="page">
     <div class="ny-logo"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></div>
     <div class="user2">
-      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
-    </div>
+  <if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+  <a href="<{:U('Index/Login/doLogout')}>"  target="_Self"><font color="#FFFFFF">退出</font></a>
+  <else />
+  <a href="<{:U('Index/Login/index')}>"><font color="#FFFFFF">登录</font></a>&nbsp;<a href="<{:U('Index/Login/checkreg')}>"><font color="#FFFFFF">注册</font></a>
+  </if>
+  </div>
     <div class="search-ny">
       <input name="code" type="text" id="_code">
-      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+      <a href="javascript:void(0);" onClick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
   </div>
 </div>
 <div class="page">
   <div class="ph-center">
   <div class="bzgl"><strong><a href="<{:U('Index/Index/index')}>"  style="color:#333;">首页</a></strong> ——  <strong>赞助我们</strong></div>
   <div class="bzbg">
-  <table width="727" border="0" align="center" cellpadding="0" cellspacing="0">
+ <table width="727" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr bgcolor="#B0C1E3">
             <td><table width="100%" border="0" cellspacing="1" cellpadding="6">
               <tr>
@@ -34,9 +38,9 @@
                   <p>　　<span class="STYLE2">《吕氏春秋 先识览 察微》：鲁国之法，鲁人为人臣妾於诸侯，有能赎之者，取其金於府。子贡赎鲁人於诸侯，来而让，不取其金。孔子曰：“赐失之矣。自今以往，鲁人不赎人矣。”</span></p>
                   <p><span class="STYLE2">　　取其金，则无损於行；不取其金，则不复赎人矣。子路拯溺者，其人拜之以牛，子路受之。孔子曰：“鲁人必拯溺者矣。”</span></p>
                   <p>　　　　</p>
-                  <p>　　<span class="STYLE2">　善举亦需酬，赞助当有报。如您愿意资助我们活下去，我们能回报的只是本站的一些数据统计功能，或许帮不上什么忙，权表心意。</span></p>
+                  <p>　　<span class="STYLE2">　理想很丰满，现实很骨感。如您愿意资助我们活下去，继续开发新的功能，我们能回报的只是本站的一些统计数据和小工具，或许帮不上什么忙，权表心意。</span></p>
                   <p align="center"><img src="__PUBLIC__/images/tuanjie.jpg" width="534" height="260"></p>
-                  <p><span class="STYLE2">　　赞助费用统一为365元（少了不够造，多了不敢要^-^），完成赞助后请发送您的注册账号及汇款账号到QQ3012644588，我们将尽快为您开通<span class="STYLE3">终身免费</span>的权限。</span></p>
+                  <p><span class="STYLE2">　　赞助本站超过365元者，我们将在24小时内为您开通<span class="STYLE3">终身免费</span>的权限，完成赞助后请发送您的注册账号（用户名）及汇款账号到QQ3012644588。</span></p>
                   <p>&nbsp;</p>
 				    <p>　　<span class="STYLE2"><strong>赞助方式一：</strong>扫描下方二维码使用微信支付</span></p>
 				    <p align="center"><img src="__PUBLIC__/images/zz1.jpg"></p>
@@ -46,7 +50,7 @@
                   <p>　　<span class="STYLE2">收　款人：高杰</span>　　</p>
                   <p>　　<span class="STYLE2">收款账号：6214 8575 5133 8058</span></p>
                   <p>&nbsp;</p>
-                  <p>　　<span class="STYLE2"><span class="STYLE3">注：</span>完成赞助后务必发送您的<span class="STYLE3">注册账号</span>及<span class="STYLE3">汇款账号</span>到QQ 3012644588。我们将尽快为您开通终身免费的权限。</span></p>
+                  <p>　　<span class="STYLE2"><span class="STYLE3">注：</span>完成赞助后务必发送您的<span class="STYLE3">注册账号（用户名）</span>及<span class="STYLE3">汇款账号</span>到QQ 3012644588。我们将在24小时内为您开通终身免费的权限。</span></p>
                   <p>　　<span class="STYLE2">您也可以在下面的留言框中留言告知我们。</span></p>
                   <br>
                   <div>
