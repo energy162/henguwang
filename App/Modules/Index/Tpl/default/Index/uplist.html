@@ -29,7 +29,7 @@
                         <tr class="white">
                             <th width="10%" height="30" align="center" bgcolor="#4c73c1">股票代码</th>
                             <th width="11%" height="30" align="center" bgcolor="#4c73c1">股票简称</th>
-                            <th width="15%" bgcolor="#4c73c1">收盘价</th>
+                            <th width="15%" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's5'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s5" href="javascript:;">对比K线数</a></th>
                             <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's1'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s1" href="javascript:;">5日涨幅超过<br />5%的概率</a></th>
                             <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's2'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s2" href="javascript:;">5日涨幅超过<br />10%的概率</a></th>
                             <th width="16%" align="center" bgcolor="#4c73c1" action-type="sort" <if condition="$data['order'] eq 's3'"><if condition="$data['desc'] eq '1'">class="sort-down"<else/>class="sort-up"</if></if>><a data-order="s3" href="javascript:;">10日涨幅超过<br />5%的概率</a></th>
@@ -39,7 +39,7 @@
                         <tr>
                             <td height="30" align="center" bgcolor="#FFFFFF"><a href="__URL__/Index/main/code/<{$vo.code}>" target="_blank"><{$vo.code}></a></td>
                             <td height="30" align="center" bgcolor="#FFFFFF"><a href="__URL__/Index/main/code/<{$vo.code}>" target="_blank"><{$vo.name}></a></td>
-                            <td align="center" bgcolor="#FFFFFF"><{$vo.lastdayClose}></td>
+                            <td align="center" bgcolor="#FFFFFF"><{$vo.days1}></td>
                             <td align="center" bgcolor="#FFFFFF"><{$vo.fiveDayUp51}>%</td>
                             <td align="center" bgcolor="#FFFFFF"><{$vo.tenDayUp51}>%</td>
                             <td align="center" bgcolor="#FFFFFF"><{$vo.tenDayUp101}>%</td>

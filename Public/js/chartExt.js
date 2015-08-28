@@ -135,9 +135,18 @@ var highStockChart = function (divID,klineurl, result) {
                             volumeSeries.setData(volumeArray, true);
                             i = dayData.length;
                             var ii=0;
-                            var titleArray=new Array("E","D","C","B","A");//直接定义并初始化;
+                            var titleArray=[];
+                            var titleArray1=new Array("A","B","C","D","E","F");//直接定义并初始化;
+                            for (var a=0;a<result.kcount;a++)
+                            {
+                                titleArray.push(titleArray1[a]);
+                            }
+                           // var titleArray=new Array("E","D","C","B","A");//直接定义并初始化;
+                           $('#mydays').html(titleArray.join(','));
+                            titleArray=titleArray.reverse();
+
                             while (i--) {
-                                if(ii>=5)
+                                if(ii>=Number(result.kcount))
                                 {
                                     break;
                                 }

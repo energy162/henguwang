@@ -234,10 +234,10 @@ class IndexAction extends CommonAction
 		$this->right();
 
         $order = I("get.order");
-        if (!in_array($order, array("s1", "s2", "s3", "s4"))) {
+        if (!in_array($order, array("s1", "s2", "s3", "s4","s5"))) {
             $order = "s1";
         }
-        $orderArr=array("s1"=>"fiveDayUp51","s2"=>"tenDayUp51", "s3"=>"tenDayUp101", "s4"=>"twentyDayUp101");
+        $orderArr=array("s1"=>"fiveDayUp51","s2"=>"tenDayUp51", "s3"=>"tenDayUp101", "s4"=>"twentyDayUp101", "s5"=>"days1");
         $orderField=$orderArr[$order];
         $desc = I("get.desc");
         if (!in_array($desc, array('0', '1'))) {
@@ -252,7 +252,7 @@ class IndexAction extends CommonAction
         $data['desc']=$desc;
         $ts_probability=M('ts_probability');
         $where="a.`date`=(select max(`date`) from ts_probability)";
-        $field="a.code,a.name,a.date,a.lastdayClose,a.fiveDayUp51,tenDayUp51,tenDayUp101,twentyDayUp101";
+        $field="a.code,a.name,a.date,a.lastdayClose,a.days1,a.fiveDayUp51,tenDayUp51,tenDayUp101,twentyDayUp101";
         $pageSize = 30;
         $count =$ts_probability->table("ts_probability a")->where($where)->count();
 

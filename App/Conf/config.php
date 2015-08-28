@@ -54,10 +54,10 @@ $b=array(
     'USER_AUTH_KEY'   => 'uid',         //用户认证识别号
     'NOT_AUTH_MODULE' => 'Index',       //无需认证的控制器
     'NOT_AUTH_ACTION' => 'insert,upload,addCat,update',            //无需认证的动作方法
-    'RBAC_ROLE_TABLE' => 'easy_role',   //角色表名称 
-    'RBAC_USER_TABLE' => 'easy_role_user',//角色表与用户表的中间表名称
-    'RBAC_ACCESS_TABLE'=>'easy_access', //权限表名称
-    'RBAC_NODE_TABLE' => 'easy_node',   //节点表名称
+    'RBAC_ROLE_TABLE' => 'role',   //角色表名称 
+    'RBAC_USER_TABLE' => 'role_user',//角色表与用户表的中间表名称
+    'RBAC_ACCESS_TABLE'=>'access', //权限表名称
+    'RBAC_NODE_TABLE' => 'node',   //节点表名称
 
      /* 模糊查询相关配置 */
     'DB_LIKE_FIELDS'    =>  'title|content',
