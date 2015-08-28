@@ -26,11 +26,11 @@ $b=array(
     /* 数据库配置 */
     'DB_TYPE'   => 'mysql', // 数据库类型
     'DB_HOST'   => '112.74.127.204', // 服务器地址
-    'DB_NAME'   => 'easycms', // 数据库名
+    'DB_NAME'   => 'sostock', // 数据库名
     'DB_USER'   => 'root', // 用户名
     'DB_PWD'    => '26a01abfa7',  // 密码PYY1234567891
     'DB_PORT'   => '3306', // 端口
-    'DB_PREFIX' => 'easy_', // 数据库表前缀
+    'DB_PREFIX' => '', // 数据库表前缀
 
      /* 模版相关配置 */
     'TMPL_DEFAULT_THEME' => 'default',  //默认模版主题
@@ -82,5 +82,17 @@ $b=array(
     //自定义跳转页面
     'TMPL_ACTION_SUCCESS' =>'./App/Modules/Index/Tpl/Public/jump.html',
     'TMPL_ACTION_ERROR' => './App/Modules/Index/Tpl/Public/jump.html',
+
+    //邮件配置
+    'THINK_EMAIL' => array(
+	 'smtpserver'   => 'smtp.163.com', //SMTP服务器
+	 'smtpport'   => '25', //SMTP服务器端口
+	 'smtpuname'   => 'energy1621@163.com', //SMTP服务器用户名
+	 'smtppasswd'   => '123162', //SMTP服务器密码
+	 'usermail'  => 'energy1621@163.com', //发件人EMAIL
+    ),
+
+     //验证加密串
+     'TOKEN' => 'K7sd1BC9sqem2',
 );
 return array_merge($b,$a);
