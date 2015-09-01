@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Motel Champlain</title>
+<title><{$data['stock']['name']}>（<{$data['stock']['code']}>）—恨股网-爱之深恨之切-个股历史走势查询-K线历史相似走势-上涨概率查询</title>
 <import type='css' file="css.global,css.style" />
 <import file="js.function,js.tools,js.jquery" />
 <link href="__PUBLIC__/css/silder.css" rel="stylesheet" type="text/css" />
@@ -16,9 +16,10 @@
     </div>
     <div class="search-ny">
       <input name="code" type="text" id="_code">
-      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
+      <a href="javascript:void(0);" onClick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
   </div>
 </div>
+<div class="banner-top"><a href="http://www.p5w.net/special/201405/jgdybd/" target="_blank"><img src="/Public/images/jgdy.gif"  height="90"></a>　<a href="http://www.p5w.net/app/xingu.html" target="_blank"><img src="/Public/images/xg.jpg" height="90"></a>　<a href="http://www.henguwang.com" target="_blank"><img src="/Public/images/nx.jpg" height="90"></a></div>
 <div class="page">
     <div class="zs-left" style="display: none"><a href="#"><img src="__PUBLIC__/images/left.jpg" width="15" height="27" border="0"></a></div>
     <div class="zs-right" style="display: none"><a href="#"><img src="__PUBLIC__/images/right.jpg" width="15" height="27" border="0"></a></div>
@@ -88,7 +89,7 @@
 	</div>
     <div class="sj"><span>涨幅：<{$data['trade']['s10']}>% </span><span>现价：<{$data['trade']['s6']}>元 </span><span>涨跌：<{$data['trade']['s11']}></span><span>今开：<{$data['trade']['s3']}>元</span><span>最高：<{$data['trade']['s4']}>元</span><span>最低：<{$data['trade']['s5']}>元</span></div>
   </div>
- <div class="comment">统计显示，对比 <{$data['probability']['days1']}>日K线，历史上相似走势共：<{$data['probability']['num1']}> 个；未来5个交易日上涨概率<{$data['probability']['fiveDayUp1']|number_format=2}>%，涨幅超过5%的概率<{$data['probability']['fiveDayUp51']|number_format=2}>%，涨幅超过10%的概率为<{$data['probability']['fiveDayUp101']|number_format=2}>%；10日交易日涨幅超过5%的概率为<{$data['probability']['tenDayUp51']|number_format=2}>%，涨幅超过10%的概率为<{$data['probability']['tenDayUp101']|number_format=2}>%。（下图中字母标记的<span id="mydays"></span>即为相似K线，以上概率仅为历史数据统计，无法准确预测未来走势，凭此入市场风险自担哦^-^）
+ <div class="comment">统计显示，对比 <span style="color:red"><{$data['probability']['days1']}>日</span>K线，历史上相似走势共：<span style="color:red"><{$data['probability']['num1']}> </span>个；未来5个交易日上涨概率<span style="color:red"><{$data['probability']['fiveDayUp1']|number_format=2}></span>%，涨幅超过5%的概率<span style="color:red"><{$data['probability']['fiveDayUp51']|number_format=2}></span>%，涨幅超过10%的概率为<span style="color:red"><{$data['probability']['fiveDayUp101']|number_format=2}></span>%；10日交易日涨幅超过5%的概率为<span style="color:red"><{$data['probability']['tenDayUp51']|number_format=2}></span>%，涨幅超过10%的概率为<span style="color:red"><{$data['probability']['tenDayUp101']|number_format=2}></span>%。（下图中字母标记的<span id="mydays"></span>即为相似K线，以上概率仅为历史数据统计，无法准确预测未来走势，凭此入市场风险自担哦^-^）
  </div>
         <div class="clear"></div>
         <div class="Menubox">

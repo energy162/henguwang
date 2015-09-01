@@ -196,7 +196,9 @@ class IndexAction extends CommonAction
         $ts_trend=M('ts_trend');
         $fiveDayValue=$ts_trend->where("code='".$code."'")->order("date desc")->getField("fiveDayValue");
 
+
         $trendlist=$ts_trend->table(array("ts_trend"=>"a","ts_info"=>"b"))->field("a.code,b.name,a.date")->where("a.code!='".$code."' and a.fiveDayValue='".$fiveDayValue."' and a.code=b.code")->order("a.date desc")->limit(0,10)->select();
+        //dump($ts_trend);
         $data['trend']=$trendlist;
 
         $maxtradedate=$trade->max("OB_TRADEDATE");
@@ -220,7 +222,7 @@ class IndexAction extends CommonAction
         $data['probability']=$ts_probability->where("code='".$code."'")->find();
         //$data['probability']['']
 
-        //dump($data['trend']);
+       // dump($data['trend']);
 
         //$trade=M('tb_trade');
         //$klines=$trade->where("ob_seccode='".$code."'")->order("OB_TRADEDATE desc")->limit(0,30);

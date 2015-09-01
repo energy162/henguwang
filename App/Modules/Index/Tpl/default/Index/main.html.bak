@@ -1,233 +1,308 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<base href="__ROOT__/" />
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
-<title><{:R('Siteinfo/info',array('title'),'Widget')}></title>
-<meta name="description" content="<{:R('Siteinfo/info',array('description'),'Widget')}>" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../Public/Css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="../Public/Css/style.css" rel="stylesheet" media="screen">
-<script src="../Public/Js/jquery.js"></script>
-<script src="../Public/Js/bootstrap.min.js"></script>
-</head><body id="body">
-<header> 
-  <!-- 导航开始 -->
- 	<include file="Public:header" />
-  <!-- 导航结束 --> 
-</header>
-<div class="container">
-  <div class="col-lg-8 col-md-8 content">
-    <div id="carousel-example-generic" class="carousel slide mb20" data-ride="carousel"> 
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <volist name="modelid1" id="images0" offset="0" length="1">
-        <div class="item active">
-          <a href="<{:U('Index/Article/index/',array('articleid'=>$images0['article_id']))}>" target="_blank"><img  style="margin:0 auto;max-height:300px;" src="<{$images0.content|imgs=$images0.content}>" alt="<{$images0.title}>" /></a>
-          <div class="carousel-caption"> </div>
-        </div>
-        </volist>
-        <volist name="modelid1" id="images" offset="1" length="2">
-        <div class="item"> <a href="<{:U('Index/Article/index/',array('articleid'=>$images['article_id']))}>" target="_blank"><img style="margin:0 auto;max-height:300px;" src="<{$images.content|imgs=$images.content}>" alt="<{$images.title}>" /></a>
-          <div class="carousel-caption"> </div>
-        </div>
-        </volist>
-      </div>
-      <!-- Controls --> 
-      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev" > <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next" > <span class="glyphicon glyphicon-chevron-right"></span> </a> </div>
-   <div class="media mb20"> <a class="pull-left" href="l"> <img class="media-object" alt="<{:R('Siteinfo/info',array('title'),'Widget')}>" src="../Public/Images/logo1.png"> </a>
-      <div class="media-body">
-        <h4 class="media-heading"><a href="" target="_blank"><{:R('Siteinfo/info',array('title'),'Widget')}></a></h4>
-        <{:R('Siteinfo/info',array('description'),'Widget')}> </div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Motel Champlain</title>
+<import type='css' file="css.global,css.style" />
+<import file="js.function,js.tools,js.jquery" />
+<link href="__PUBLIC__/css/silder.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/js/highstock.min.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/js/chartExt.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/js/slides.min.jquery.js"></script>
+</head>
+<body>
+<div class="top">
+  <div class="page">
+    <div class="ny-logo"><a href="__URL__"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></a></div>
+    <div class="user2">
+      <h3><a href="#"><img src="__PUBLIC__/images/q8.jpg" width="36" height="27"></a></h3>
     </div>
-    <div itemscope itemtype="">
-      
-<volist name="modelid1" id="modelid1" offset='0' length='3'>
-      <div class="col-lg-4 col-md-6 col-sm-6 mb20">
-        <div class="thumbnail">
-          <div class="stickyImg"  ><img src="<{$modelid1.content|imgs=$modelid1.content}>" itemprop="image"  /></div>
-          <div class="caption">
-            <div class="stickyContent">
-              <h3 class="stickyTitle"><a href="<{:U('Index/Article/index/',array('articleid'=>$modelid1['article_id']))}>" title="<{$modelid1.title}>"><span itemprop="itemListElement"><{$modelid1.title}></span></a></h3>
-              <div class="stickyDesc" itemprop="description">
-                <p><{$modelid1.summary}></p> 
-              <!--   <p><{$modelid1.content|imgs=$modelid1.content}></p> -->
-              </div>
-            </div>
-            <a itemprop="url" href="<{:U('Index/Article/index/',array('articleid'=>$modelid1['article_id']))}>" class="btn btn-primary" role="button" target="_blank">阅读全文</a> </div>
-        </div>
-      </div>
-</volist>
-    </div>
-
-
-<Volist name="modelid0" id="modelids">
-    <div class="col-lg-6 col-md-6 col-sm-6 mb20 indexCat" itemscope itemtype="">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" itemprop="name"><a href="<{:U('Index/List/index',array('catsid'=>$modelids['id']))}>"><{$modelids.name}></a></h3>
-        </div>
-       <ul class="list-group">
-       <Volist name="modelids.Article" id="Articles" >
-        <if condition="$Articles.ispush eq 1">
-          <a itemprop="url" href="<{:U('Index/Article/index/',array('articleid'=>$Articles['article_id']))}>"class="list-group-item">
-          <span itemprop="itemListElement"><{$Articles.title}></span>
-          </a>
-         </if> 
-       </Volist>
-     
-      </ul>
-      </div>
-    </div>
-</Volist>
-    
-   
- 
-
-
+    <div class="search-ny">
+      <input name="code" type="text" id="_code">
+      <a href="javascript:void(0);" onclick="searchCode('__APP__')"><img src="__PUBLIC__/images/search-img-2.jpg" width="57" height="32" border="0"></a></div>
   </div>
-  <div class="col-lg-4 col-md-4 sidebar">
-    <div class="clean"></div>
-    <aside class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">公告</h3>
-      </div>
-      <div class="panel-body">
-      		<{:R('Siteinfo/info',array('announcement'),'Widget')}>
-      </div>
-    </aside>
-   
-
-    <div class="panel-group mb20" id="accordion">
-     
-
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">
-              <span class="glyphicon glyphicon-fire mr10"></span>
-              <span itemprop="name">按赞的次数推荐的5篇</span>
-            </a>
-          </h3>
-        </div>
-       
-        <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
-      <foreach name="approval" item="approval">
-
-
-
-
-        <a href="<{:U('Index/Article/index/',array('articleid'=>$approval['article_id']))}>" class="list-group-item" itemprop="url">
-        <span itemprop="itemListElement"><{$approval.title}></span>
-        </a>
-      </foreach>
-        </div>
-      </div>
-    
-
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
-              <span class="glyphicon glyphicon-volume-up mr10"></span>
-              <span itemprop="name">最新热门的5篇文章</span>
-            </a>
-          </h3>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" style="height: 0px;">
-        <foreach name="approval2" item="approval2">
-        <a href="<{:U('Index/Article/index/',array('articleid'=>$approval2['article_id']))}>" class="list-group-item" itemprop="url">
-        <span itemprop="itemListElement"><{$approval2.title}></span>
-        </a>
-       </foreach>
-         </div>
-      </div>
-    
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="">
-              <span class="glyphicon glyphicon-thumbs-up mr10"></span>
-              <span itemprop="name">随机推荐5篇精选文章</span>
-            </a>
-          </h3>
-        </div>
-      <div id="collapseThree" class="panel-collapse in" style="height: auto;">
-        <foreach name="approval3" item="approval3">
-        <a href="<{:U('Index/Article/index/',array('articleid'=>$approval3['article_id']))}>" class="list-group-item" itemprop="url">
-        <span itemprop="itemListElement"><{$approval3.title}></span>
-        </a>
-        </foreach>
-        </div>
-      </div>
-    </div>
-    
-
-
-    <aside class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">最新注册会员</h3>
-      </div>
-      <ul class="ds-recent-visitors" data-num-items="24" data-show-time="0" data-avatar-size="44" id="ds-recent-visitors">
-        <volist name="portrait" id="portraits">
-        <div class="ds-avatar" style="margin:4px;float:left;"><a title="<{$portraits.username}>"><img src="<{$portraits.photo|photos=$portraits.photo}>" alt="" style="width:44px;height:44px"></a></div>
-      </volist>
-      </ul>
-    </aside>
-    <div id="ad" data-spy="affix" class="fade in"><a class="close" data-dismiss="alert" href="#" aria-hidden="true" style="position:absolute;color:#c5c5c5;" title="关闭"><span class="glyphicon glyphicon-ban-circle"></span></a>
-      <aside class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">赞助商</h3>
-        </div>
-        <div class="panel-body" style="padding:0;text-align:left;">
-        	<{:R('Siteinfo/info',array('ad'),'Widget')}>
-        </div>
-      </aside>
-    </div>
-    <!-- 右侧底部广告 --> 
-    <script>var ad=$('#ad'),st;var sd=$('.sidebar'),st;ad.attr('data-offset-top',ad.offset().top+ad.innerWidth());var wd=sd.innerWidth()-30;ad.attr({style:'width:'+wd+'px'});</script> 
-  </div>
-  <div class="clean"></div>
-  </div>
-<footer id="footer">
-  <div class="col-lg-12 col-md-12">
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="panel-body text-muted">
-          <ul>
-             <volist name="links" id="link">
-             <li ><a href="<{$link.url}>" target="_blank"><{$link.name}></a><span>&nbsp;&nbsp;</li>
-            </volist>
-            <li ><a href="<{:U('Reason/index')}>" style="color:red"><span class="glyphicon glyphicon-list-alt"></span>点击申请链接</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- footer start -->
-<include file="Public:footer" />
-<!-- footer end -->
-<div class="btn-group-vertical floatButton">
-  <button type="button" class="btn btn-default" id="goTop" title="去顶部"><span class="glyphicon glyphicon-arrow-up"></span></button>
-  <button type="button" class="btn btn-default" id="refresh" title="刷新"><span class="glyphicon glyphicon-repeat"></span></button>
-  <button type="button" class="btn btn-default" id="goBottom" title="去底部"><span class="glyphicon glyphicon-arrow-down"></span></button>
 </div>
-<!-- 去顶部 --> 
+<div class="page">
+    <div class="zs-left" style="display: none"><a href="#"><img src="__PUBLIC__/images/left.jpg" width="15" height="27" border="0"></a></div>
+    <div class="zs-right" style="display: none"><a href="#"><img src="__PUBLIC__/images/right.jpg" width="15" height="27" border="0"></a></div>
+<div class="ny-left">
+	<div class="gszl">
+		<p>公司资料</p>
+		<ul>
+			<li class="z1"><a href="http://guba.eastmoney.com/list,<{$data['stock']['code']}>.html" target="_blank">公司股吧</a></li>
+			<li class="z2"><a href="http://data.p5w.net/stock/fxpj.php?code=<{$data['market']}><{$data['stock']['code']}>" target="_blank">投资评级</a></li>
+			<li class="z1"><a href="http://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllNewsStock/symbol/<{$data['market']}><{$data['stock']['code']}>.phtml" target="_blank">公司新闻</a></li>
+			<li class="z2"><a href="http://data.eastmoney.com/report/<{$data['stock']['code']}>.html" target="_blank">盈利预测</a></li>
+			<li class="z1"><a href="http://data.p5w.net/stock/lsgg.php?code=<{$data['market']}><{$data['stock']['code']}>" target="_blank">公司公告</a></li>
+			<li class="z2"><a href="http://data.eastmoney.com/zjlx/<{$data['stock']['code']}>.html" target="_blank">资金流向</a></li>
+			<li class="z1"><a href="http://f10.eastmoney.com/f10_v2/FinanceAnalysis.aspx?code=<{$data['market']}><{$data['stock']['code']}>" target="_blank">财务数据</a></li>
+			<li class="z2"><a href="http://vip.stock.finance.sina.com.cn/q/go.php/vReport_List/kind/search/index.phtml?symbol=<{$data['stock']['code']}>&t1=all" target="_blank">公司研报</a></li>
+			<li class="z1"><a href="http://f10.eastmoney.com/f10_v2/ShareholderResearch.aspx?code=<{$data['market']}><{$data['stock']['code']}>" target="_blank">主要股东</a></li>
+			<li class="z2"><a href="http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpInfo/stockid/<{$data['stock']['code']}>.phtml" target="_blank">公司概况</a></li>
+		</ul>
+		<div style="clear:both;display:block; "></div>
+	</div>
+	<div class="gszl">
+		<p>涨幅榜（<{$data['maxdate']|strtotime|date='md',###}>）</p>
+		<div class="tline">
+			<ul>
+				<li class="fj1 blue">名称</li>
+				<li class="fj2 blue">最新价</li>
+				<li class="fj3 blue">涨幅</li>
+			</ul>
+		</div>
+		<volist name="data['uplist']" id="vo">
+			<div class="tline">
+				<ul>
+					<li class="fj1"><a href="__URL__/Index/main/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
+					<li class="fj2"><{$vo.f007n}></li>
+					<li class="fj3 red"><{$vo.f015n}>%</li>
+				</ul>
+			</div>
+		</volist>
+
+
+	</div>
+	<div class="gszl">
+		<p>跌幅榜（<{$data['maxdate']|strtotime|date='md',###}>）</p>
+		<div class="tline">
+			<ul>
+				<li class="fj1 blue">名称</li>
+				<li class="fj2 blue">最新价</li>
+				<li class="fj3 blue">跌幅</li>
+			</ul>
+		</div>
+		<volist name="data['downlist']" id="vo">
+			<div class="tline">
+				<ul>
+					<li class="fj1"><a href="__URL__/Index/main/code/<{$vo.ob_seccode}>" target="_blank"><{$vo.ob_secname}></a></li>
+					<li class="fj2"><{$vo.f007n}></li>
+					<li class="fj3 green"><{$vo.f015n}>%</li>
+				</ul>
+			</div>
+		</volist>
+
+	</div>
+</div>
+<div class="ny-center">
+  <div class="gegu">
+    <div class="gumc"><{$data['stock']['name']}>
+		<p>（<{$data['stock']['code']}>）</p>
+	</div>
+    <div class="sj"><span>涨幅：<{$data['trade']['s10']}>% </span><span>现价：<{$data['trade']['s6']}>元 </span><span>涨跌：<{$data['trade']['s11']}></span><span>今开：<{$data['trade']['s3']}>元</span><span>最高：<{$data['trade']['s4']}>元</span><span>最低：<{$data['trade']['s5']}>元</span></div>
+  </div>
+ <div class="comment">统计显示，对比 <{$data['probability']['days1']}>日K线，历史上相似走势共：<{$data['probability']['num1']}> 个；未来5个交易日上涨概率<{$data['probability']['fiveDayUp1']|number_format=2}>%，涨幅超过5%的概率<{$data['probability']['fiveDayUp51']|number_format=2}>%，涨幅超过10%的概率为<{$data['probability']['fiveDayUp101']|number_format=2}>%；10日交易日涨幅超过5%的概率为<{$data['probability']['tenDayUp51']|number_format=2}>%，涨幅超过10%的概率为<{$data['probability']['tenDayUp101']|number_format=2}>%。（下图中字母标记的<span id="mydays"></span>即为相似K线，以上概率仅为历史数据统计，无法准确预测未来走势，凭此入市场风险自担哦^-^）
+ </div>
+        <div class="clear"></div>
+        <div class="Menubox">
+            <ul class="Gray">
+                <li id="san1" class="hover"><a href="#">日 线</a></li>
+            </ul>
+        </div>
+        <div class="Contentbox">
+            <div id="con_san_1" class="hover" style="height: 349px;width: 474px;padding:0;">
+                <div id="container" style="height: 349px;width: 474px">
+                </div></div>
+            <div id="con_san_2" style="display:none"> <img src="__PUBLIC__/images/pic1.jpg" width="474" height="349"> </div>
+        </div>
+        <div class="clear"></div>
+        <div class="Menubox2">
+            <ul class="Gray">
+                <li id="er1" class="hover"><a href="#">历史类似走势</a></li>
+            </ul>
+        </div>
+        <div id="slides">
+            <div class="slides_container" >
+            <if condition="$data['trend']">
+
+                <volist  name="data['trend']" id="vo">
+                    <div class="slide">
+                        <div class="lszs">
+                            <p><a href="__URL__/view/code/<{$vo.code}>" target="_blank"><{$vo.name}>(<{$vo.code}>)</a> <span>历史相似日期：<{$vo.date}></span></p>
+                        </div>
+                        <div id="container<{$i}>" style="height: 349px;width: 474px;">
+                        </div>
+                    </div>
+                </volist>
+
+			<else/>
+			<div class="slide">
+				<div class="lszs">
+						<p>你遇上了一个奇葩，这个走势在历史上没出现过哦！</p>
+				</div>
+					<div style="height: 349px;width: 474px;">
+					</div>
+			</div>
+			</if>
+		</div>
+  </div>
+<div class="clear"></div>
+</div>
+<div class="ny-right">
+<if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
+<div class="yh"><if condition="$persons.photo eq null">
+            <img src="__PUBLIC__/images/pic4.jpg" width="63" height="63">
+          <else/>
+            <img src="__AVATAR__/avatar_<{$persons.photo}>" width="63" height="63"></if>
+  <p>用户名：<{$persons.username}> <br>
+    用户类型：<{$ranklist[$persons['user_rank']]}> <br>
+	到期时间：<if condition="$persons['expires_time'] neq $persons['regtime']">
+    <{$persons.expires_time|date='Y.m.d',###}><else/>永不过期</if></p>
+  <div class="yhzx1 white"><a href="<{:U('Member/Person/index/')}>">个人中心</a></div>
+  <div class="yhzx white"><a href="<{:U('Index/Index/support/')}>">我要赞助</a></div>
+  <div style="clear:both;display:block; "></div>
+</div>
+<div class="kx">
+  <p>K线选股</p>
+  <div class="xuangu">
+  <ul>
+    <Volist name="kxxg_list" id="articles" >
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
+	</Volist>
+  </ul>
+  </div>
+</div>
+<div class="kx">
+  <p>财报选股</p>
+  <Volist name="cbxg_list" id="articles" >
+  <div <if condition="$key+1 eq count($cbxg_list)">class="jzx"<else />class="czx"</if>><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>"><{$articles.title}></a></div>
+  </Volist>
+</div>
+<div class="kx">
+<p>研报推荐</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="ybtj_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
+		</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+<div class="kx">
+<p>专题</p>
+<div class="ybtj">
+	<ul>
+		<Volist name="zt_list" id="articles" >
+		<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
+		</Volist>
+    </ul>
+</div>
+<else />
+<div class="kx">
+    <p>K线选股</p>
+<div class="jcyd">
+	<ul>
+    <Volist name="kxxg_list" id="articles" >
+    <li class="q<{$key+1}>"><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title}></a></li>
+	</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+ 
+    <div class="kx">
+    <p>专题</p>
+<div class="jcyd">
+	<ul>
+    <Volist name="zt_list" id="articles" >
+	<li>· <a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title|msubstr=0,14,"utf-8",false}></a></li>
+	</Volist>
+	</ul>
+</div>
+<div style="clear:both;display:block; "></div></div>
+<div class="banner-1"><img src="__PUBLIC__/images/banner.jpg" width="225" height="301"></div>
+
+<div class="kx">
+    <p>精彩阅读</p>
+<div class="jcyd">
+	<ul>
+	    <Volist name="jcyd_list" id="articles" >
+		<li><a href="<{:U('Index/Article/index/',array('articleid'=>$articles['article_id']))}>" title="<{$articles.title}>"><{$articles.title|msubstr=0,15,"utf-8",false}></a></li>
+		</Volist>
+	</ul>
+</div>
+</if>
+<div style="clear:both;display:block; "></div></div>
+</div>
+<div style="clear:both;display:block; "></div>
+</div>
+<!-- footer start -->
+<include file="Public:_footer" />
+<!-- footer end -->
+
 <script type="text/javascript">
-jQuery(document).ready(function($){
-  $('#goTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
-  $('#goBottom').click(function(){$('html,body').animate({scrollTop:$('#footer').offset().top}, 800);});
-  $('#refresh').click(function(){location.reload();});
-});
+    //绘制K线图
+    function tradeChart(){
+        var url="__APP__/Index/Stock/kline";
+        var stockCode = "<{$data['stock']['code']}>";
+        var stockName = "<{$data['stock']['name']}>";
+        var enddate="<{$data['maxdate']}>";
+        var kcount="<{$data['probability']['days1']}>";
+        if (kcount<"3")
+        {
+            kcount="3";
+        }
+        new highStockChart('container',url, {"code":stockCode,"name":stockName,"enddate":enddate,"kcount":kcount});
+    <volist  name="data['trend']" id="vo">
+        var stockCode2="<{$vo.code}>";
+        var stockName2="<{$vo.name}>";
+        var stockDate="<{$vo.date}>";
+        new highStockChart('container<{$i}>',url,{"code":stockCode2,"name":stockName2,"date":stockDate,"kcount":kcount});
+    </volist>
+        //$('.slide').eq(0).show();
+    }
+
+    function makesilder()
+    {
+        if (typeof useEffect == "undefined") { useEffect = 'slide' };
+        var isTouch = typeof window.ontouchstart !== 'undefined';
+        var mySildes = $('#slides');
+        if (!isTouch && $('.slide', mySildes).size() > 1) {
+            $('<a href="#" onfocus="this.blur()" class="prev"></a>').appendTo(mySildes).hide();
+            $('<a href="#" onfocus="this.blur()" class="next"></a>').appendTo(mySildes).hide();
+            // mySildes.hover(function () {
+            $('.prev').show();
+            $('.next').show();
+            // }, function () {
+            //     $('.prev').hide();
+            //     $('.next').hide();
+            //});
+
+        }
+        else {
+            useEffect = 'slide';
+        }
+        mySildes.slides({
+            preload: true,
+            preloadImage: '__PUBLIC__/images/loading.gif',
+            fadeSpeed: 1200,
+            hoverPause: true,
+            start: 1,
+            effect: useEffect,
+            crossfade: true,
+            paginationClass: 'pagination',
+            generatePagination: false,
+            container: 'slides_container',
+            animationStart: function (current) {
+                //
+                //alert(current);
+            },
+            animationComplete: function (current) {
+                // var tmp = $('.slide', mySildes);
+                // var b = parseInt($('.caption', tmp.eq(current - 1)).height() - 15);
+                // $('.pagination').css({ bottom: b }).show();
+
+            },
+            slidesLoaded: function () {
+                //var tmp = $('.slide', mySildes);
+                //var b = parseInt($('.caption', tmp.eq(0)).height() - 15);
+                //$('.pagination').css({ bottom: b }).show();
+                //alert('load');
+            }
+        });
+    }
+
+    $(function() {
+        tradeChart();
+        makesilder();
+    });
 </script>
+
 </body>
 </html>
