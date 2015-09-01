@@ -30,7 +30,7 @@ class ArticleAction extends CommonAction
 		$id = $article['tid'];
 		$category = $model->find($id);
 		$allow_rank = unserialize($category['visit']);
-		if(!in_array($result['user_rank'], $allow_rank)) {
+		if($allow_rank && !in_array($result['user_rank'], $allow_rank)) {
 			if(empty($result))
 			{
 				$this->error('您尚未登录，请先注册登录');
