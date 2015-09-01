@@ -231,6 +231,19 @@ class IndexAction extends CommonAction
     }
 
 	public function uplist(){
+		$result = $this->persons;
+		//权限判断
+		if(!in_array($result['user_rank'], array(2))) {
+			if(empty($result))
+			{
+				$this->error('您尚未登录，请先注册登录');
+			}
+			else
+			{
+				$this->error('您还不是本站赞助用户，暂时无法访问');
+			}
+		}
+
 		$this->right();
 
         $order = I("get.order");

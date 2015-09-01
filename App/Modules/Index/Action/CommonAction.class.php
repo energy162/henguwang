@@ -28,7 +28,7 @@ class CommonAction extends Action
 			$result['expires_time'] = strtotime('+' . $result['expires_time'] . 'month', $result['regtime']);
 
 			//新注册用户试用2天付费用户
-			if(strtotime('+2 days', $result['regtime']) > time() || $result['user_rank']<2) {
+			if(strtotime('+2 days', $result['regtime']) > time() && $result['user_rank']<2) {
 				$result['user_rank'] = 2;
 				$result['expires_time'] = strtotime('+2 days', $result['regtime']);
 			}
