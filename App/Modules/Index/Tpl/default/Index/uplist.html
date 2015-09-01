@@ -152,8 +152,8 @@
 </div>
 </div>
 <include file="Public:_footer" />
-<form name="myform" id="myform" method="get" action="__ACTION__">
-    <input type="hidden" name="s" value="/Index/uplist" />  <input type="hidden" name="p" value="<{$data['p']}>" /><input type="hidden" name="order" value="<{$data['order']}>" /><input type="hidden" name="desc" value="<{$data['desc']}>" />
+<form name="myform" id="myform" method="get" action="<{:U('Index/Index/uplist')}>">
+    <input type="hidden" name="s" value="/Index/Index/uplist" />  <input type="hidden" name="p" value="<{$data['p']}>" /><input type="hidden" name="order" value="<{$data['order']}>" /><input type="hidden" name="desc" value="<{$data['desc']}>" />
 </form>
 <script type="text/javascript">
     $("th[action-type='sort'] a").click(function () {
