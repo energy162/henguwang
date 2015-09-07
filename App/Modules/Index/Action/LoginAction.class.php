@@ -137,6 +137,41 @@ class LoginAction extends Action{
 	}
 
 	public function lost(){
+		if(I('post.'))
+		{
+			//die(var_dump(I('post.')));
+			$User = M("Member_user"); 
+			$where['username'] = I('post.username'); 
+			$where['email'] = I('post.email', '', 'email');
+			
+			if($where['email'] && $where['username'])
+			{
+				$result =$User->where($where)->find();
+				$sign = get_sign($addresult);
+
+				$to = $where['email'];
+				$subject = '恨股网会员找回密码邮件';
+
+				$body = file_get_contents('email.html');
+				$body = preg_replace('/\\\\/','', $body); //Strip backslashes
+
+				$patterns = array();
+				$patterns[0] = '/{name}/';
+				$patterns[1] = '/{active_url}/';
+				$replacements = array();
+				$replacements[0] = $_POST['username'];
+				$replacements[1] = U('/index/Login/verify_email',array('uid'=>$addresult,'sign'=>$sign), true, false, true);
+				$body = preg_replace($patterns, $replacements, $body);
+
+				if(!send_mail($to, $subject, $body))
+				{
+					$this->error('邮件发送失败，请联系管理员',U('Login/index'));
+				}
+				
+				$this->success('注册成功,系统将会发送封验证邮件到您邮箱，请登录您的注册邮箱，完成验证。',U('Index/index'));
+			}
+			
+		}
 		$this->display('lost');
 	}
 

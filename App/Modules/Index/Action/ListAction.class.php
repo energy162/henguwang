@@ -45,6 +45,11 @@ class ListAction extends CommonAction
 		$this->assign('zt_list',$zt_list);
 		
 
+		$this->assign('title',$cats['name']);
+		$this->assign('description',$cats['name']);
+		$this->assign('keywords',$cats['name']);
+
+
 		$this->display('list');
 	}
 
