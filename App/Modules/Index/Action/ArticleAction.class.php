@@ -61,6 +61,10 @@ class ArticleAction extends CommonAction
 		
 		$this->assign('article',$article);
 
+		$this->assign('title',$article['title']);
+		$this->assign('description',$article['summary']);
+		$this->assign('keywords',$article['keyword']);
+		
 		if($article['modelid']==1){
 			preg_match_all("/<img(.*)src=\"([^\"]+)\"[^>]+>/isU",$article['content'],$matches);
             $img = $matches[2];
