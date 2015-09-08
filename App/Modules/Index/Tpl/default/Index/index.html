@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="{$metas['keywords']}">
-<meta name="description" content="{$metas['description']}">
 <title>恨股网-爱之深恨之切-个股历史走势查询-K线历史相似走势-上涨概率查询</title>
+<meta name="keywords" content="历史类似走势查询;历史相似走势查询;相似K线;个股历史走势查询;K线历史相似走势;上涨概率查询">
+<meta name="description" content="爱之深恨之切，恨股网致力于分享将证券投资更简单明了的工具数据，不管有用没用，我们在路上……">
 <style type="text/css">
 body {
 	margin-left: 0px;
@@ -15,6 +15,15 @@ body {
 <import type='css' file="css.global,css.style" />
 <import file="js.function,js.tools,js.jquery" />
 <base target="_self">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?efb830c601cca2343edac77c883aac5b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 <div class="page">
@@ -47,15 +56,15 @@ body {
 </div>
 <script type="text/javascript">
 $(function(){
-	$("#_code").val('输入股票代码，如000001');
+	$("#_code").val('输入代码如000001，查历史类似走势');
 	$("#_code").focus(function(){
-		if($("#_code").val() == '输入股票代码，如000001'){
+		if($("#_code").val() == '输入代码如000001，查历史类似走势'){
 			$("#_code").val('');
 		}
 	});
 	$("#_code").blur(function(){
 		if($("#_code").val() == ''){
-			$("#_code").val('输入股票代码，如000001');
+			$("#_code").val('输入代码如000001，查历史类似走势');
 		}
 	});
 });

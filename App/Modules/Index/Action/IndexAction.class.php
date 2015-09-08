@@ -194,10 +194,15 @@ class IndexAction extends CommonAction
         }
         $data['trade']=$trades;
         $ts_trend=M('ts_trend');
-        $fiveDayValue=$ts_trend->where("code='".$code."'")->order("date desc")->getField("fiveDayValue");
+        $ts_probability=M('ts_probability');
+        $data['probability']=$ts_probability->where("code='".$code."'")->find();
+        $days1=$data['probability']['days1'];
+        $findArr=array("3"=>"threeDayValue","4"=>"fourDayValue","5"=>"fiveDayValue","6"=>"sixDayValue");
+
+        $fiveDayValue=$ts_trend->where("code='".$code."'")->order("date desc")->getField($findArr[$days1]);
 
 
-        $trendlist=$ts_trend->table(array("ts_trend"=>"a","ts_info"=>"b"))->field("a.code,b.name,a.date")->where("a.code!='".$code."' and a.fiveDayValue='".$fiveDayValue."' and a.code=b.code")->order("a.date desc")->limit(0,10)->select();
+        $trendlist=$ts_trend->table(array("ts_trend"=>"a","ts_info"=>"b"))->field("a.code,b.name,a.date")->where("a.code!='".$code."' and a.".$findArr[$days1]."='".$fiveDayValue."' and a.code=b.code")->order("a.date desc")->limit(0,10)->select();
         //dump($ts_trend);
         $data['trend']=$trendlist;
 
@@ -218,8 +223,7 @@ class IndexAction extends CommonAction
             $val['f015n']=number_format($val['f015n'],2);
         }
         $data['downlist']=$downlist;
-        $ts_probability=M('ts_probability');
-        $data['probability']=$ts_probability->where("code='".$code."'")->find();
+
         //$data['probability']['']
 
        // dump($data['trend']);
