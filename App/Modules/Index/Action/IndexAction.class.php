@@ -200,14 +200,14 @@ class IndexAction extends CommonAction
         $findArr=array("3"=>"threeDayValue","4"=>"fourDayValue","5"=>"fiveDayValue","6"=>"sixDayValue");
 
         $fiveDayValue=$ts_trend->where("code='".$code."'")->order("date desc")->getField($findArr[$days1]);
+        $maxtradedate=$trade->max("OB_TRADEDATE");
+        $data['maxdate']=$maxtradedate;
 
-
-        $trendlist=$ts_trend->table(array("ts_trend"=>"a","ts_info"=>"b"))->field("a.code,b.name,a.date")->where("a.code!='".$code."' and a.".$findArr[$days1]."='".$fiveDayValue."' and a.code=b.code")->order("a.date desc")->limit(0,10)->select();
+        $trendlist=$ts_trend->table(array("ts_trend"=>"a","ts_info"=>"b"))->field("a.code,b.name,a.date")->where("a.code!='".$code."' and a.".$findArr[$days1]."='".$fiveDayValue."' and a.code=b.code and a.date<'".$maxtradedate."'")->order("a.date desc")->limit(0,10)->select();
         //dump($ts_trend);
         $data['trend']=$trendlist;
 
-        $maxtradedate=$trade->max("OB_TRADEDATE");
-        $data['maxdate']=$maxtradedate;
+
         $uplist=$trade->field("ob_seccode,ob_secname,f007n,f015n")->where("OB_TRADEDATE='".$maxtradedate."'")->order("F015N desc")->limit(0,10)->select();
         foreach($uplist as &$val)
         {

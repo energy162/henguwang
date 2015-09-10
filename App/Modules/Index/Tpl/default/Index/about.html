@@ -17,11 +17,11 @@
 <div class="top">
   <div class="page">
     <div class="ny-logo"><a href="/index.php?s=/Index/index/index/"><img src="__PUBLIC__/images/logo-ny.png" width="165" height="55"></a></div>
-    <div class="user2">
+ <div class="user2">
   <if condition="$_SESSION[C('USER_AUTH_KEY_ID')]">
-  <a href="<{:U('Index/Login/doLogout')}>"  target="_Self">退出</a>
+  <a href="<{:U('Index/Login/doLogout')}>"  target="_Self"><font color="#FFFFFF">退出</font></a>
   <else />
-  <a href="<{:U('Index/Login/index')}>">登录</a>&nbsp;<a href="<{:U('Index/Login/checkreg')}>">注册</a>
+  <a href="<{:U('Index/Login/index')}>"><font color="#FFFFFF">登录</font></a>&nbsp;<a href="<{:U('Index/Login/checkreg')}>"><font color="#FFFFFF">注册</font></a>
   </if>
   </div>
     <div class="search-ny">

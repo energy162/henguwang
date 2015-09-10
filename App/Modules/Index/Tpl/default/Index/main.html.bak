@@ -6,6 +6,15 @@
 <script language="javascript" type="text/javascript" src="__PUBLIC__/js/highstock.min.js"></script>
 <script language="javascript" type="text/javascript" src="__PUBLIC__/js/chartExt.js"></script>
 <script language="javascript" type="text/javascript" src="__PUBLIC__/js/slides.min.jquery.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?efb830c601cca2343edac77c883aac5b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 <div class="top">
