@@ -70,24 +70,24 @@ class IndexAction extends CommonAction
 		$kxxg = $cats->where('id=73')->relation(true)->select();
 		$this->assign('kxxg',$kxxg);
 
-		$kxxg_list = $article->where('tid=73')->order('article_id asc')->limit('6')->select();
+		$kxxg_list = $article->where('tid=73')->order('article_id desc')->limit('6')->select();
 		$this->assign('kxxg_list',$kxxg_list);
 		//var_dump($kxxg);var_dump($kxxg_list);
 
 		//财报选股
-		$cbxg_list = M('Article')->where('tid=74')->order('article_id asc')->limit('2')->select();
+		$cbxg_list = M('Article')->where('tid=74')->order('article_id desc')->limit('2')->select();
 		$this->assign('cbxg_list',$cbxg_list);
 
 		//研报推荐
-		$ybtj_list = M('Article')->where('tid=75')->order('article_id asc')->limit('10')->select();
+		$ybtj_list = M('Article')->where('tid=75')->order('article_id desc')->limit('10')->select();
 		$this->assign('ybtj_list',$ybtj_list);
 
 		//专题
-		$zt_list = M('Article')->where('tid=76')->order('article_id asc')->limit('10')->select();
+		$zt_list = M('Article')->where('tid=76')->order('article_id desc')->limit('10')->select();
 		$this->assign('zt_list',$zt_list);
 
 		//精彩阅读
-		$jcyd_list = M('Article')->where('tid=78')->order('article_id asc')->limit('10')->select();
+		$jcyd_list = M('Article')->where('tid=78')->order('article_id desc')->limit('10')->select();
 		$this->assign('jcyd_list',$jcyd_list);
 
 		//查询股票信息
@@ -103,19 +103,19 @@ class IndexAction extends CommonAction
 
 	Public function support(){
 		//K线选股
-		$kxxg_list = M('Article')->where('tid=73')->order('article_id asc')->limit('6')->select();
+		$kxxg_list = M('Article')->where('tid=73')->order('article_id desc')->limit('6')->select();
 		$this->assign('kxxg_list',$kxxg_list);
 
 		//财报选股
-		$cbxg_list = M('Article')->where('tid=74')->order('article_id asc')->limit('2')->select();
+		$cbxg_list = M('Article')->where('tid=74')->order('article_id desc')->limit('2')->select();
 		$this->assign('cbxg_list',$cbxg_list);
 
 		//研报推荐
-		$ybtj_list = M('Article')->where('tid=75')->order('article_id asc')->limit('10')->select();
+		$ybtj_list = M('Article')->where('tid=75')->order('article_id desc')->limit('10')->select();
 		$this->assign('ybtj_list',$ybtj_list);
 
 		//专题
-		$zt_list = M('Article')->where('tid=76')->order('article_id asc')->limit('10')->select();
+		$zt_list = M('Article')->where('tid=76')->order('article_id desc')->limit('10')->select();
 		$this->assign('zt_list',$zt_list);
 
 
