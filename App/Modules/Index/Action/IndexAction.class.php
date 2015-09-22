@@ -275,8 +275,12 @@ class IndexAction extends CommonAction
         $pageSize = 30;
         $count =$ts_probability->table("ts_probability a")->where($where)->count();
 
+		$p      =   C('VAR_PAGE') ? C('VAR_PAGE') : 'p' ;
+		$parameter[$p]  =   '__PAGE__';
+        $url            =   U('index/index/uplist',$parameter);
+
         import("@.Common.P5wPage");
-        $Page = new P5wPage($count, $pageSize, ""); // 实例化分页类 传入总记录数和每页显示的记录数
+        $Page = new P5wPage($count, $pageSize, "", $url); // 实例化分页类 传入总记录数和每页显示的记录数
         $data['p']=$Page->nowPage;
         $data['page'] = $Page->show();
         $list=$ts_probability->table("ts_probability a")->field($field)->where($where)->order($orderField." ".$descstr.",a.code asc")->limit($Page->firstRow . ',' . $Page->listRows)->select();
